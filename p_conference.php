@@ -2,21 +2,23 @@
 <html dir="ltr" lang="en">
 
 <head>
-<style>
-/* Change pagination text color to black */
-.dataTables_wrapper .dataTables_paginate .paginate_button {
-    color: black !important;
-}
+    <style>
+        /* Change pagination text color to black */
+        .dataTables_wrapper .dataTables_paginate .paginate_button {
+            color: black !important;
+        }
 
-/* Ensure active, hover, and focus states are also black */
-.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
-.dataTables_wrapper .dataTables_paginate .paginate_button:active,
-.dataTables_wrapper .dataTables_paginate .paginate_button.current {
-    color: black !important;
-    background-color: transparent !important; /* Optional: remove background */
-    border: none !important; /* Optional: remove border */
-}
-</style>
+        /* Ensure active, hover, and focus states are also black */
+        .dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+        .dataTables_wrapper .dataTables_paginate .paginate_button:active,
+        .dataTables_wrapper .dataTables_paginate .paginate_button.current {
+            color: black !important;
+            background-color: transparent !important;
+            /* Optional: remove background */
+            border: none !important;
+            /* Optional: remove border */
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -159,8 +161,7 @@
 
     </div>
     <footer class="footer text-center">
-        All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
-    </footer>
+        2024 © M.Kumarasamy College of Engineering All Rights Reserved. </footer>
     </div>
     </div>
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
@@ -192,7 +193,7 @@
     <script>
         $(document).ready(function() {
             $('#conference1').DataTable({
-                
+
             });
         });
     </script>

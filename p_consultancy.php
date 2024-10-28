@@ -114,22 +114,18 @@
                             <table id="consultancy1" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty Name</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+
                                     </tr>
 
                                 </tbody>
@@ -142,7 +138,7 @@
 
             </div>
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
             </footer>
         </div>
     </div>

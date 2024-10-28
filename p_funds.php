@@ -112,25 +112,23 @@
                     <div class="card-body">
                         <div class="table-responsive">
                             <table id="funds1" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white">
+                                <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Tittle</th>
+                                        <th>Type</th>
+                                        <th>Project ID</th>
+                                        <th>Funding Agency</th>
+                                        <th>Link</th>
+                                        <th>Requested Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
+
 
                                 </tbody>
 
@@ -142,7 +140,7 @@
 
             </div>
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
             </footer>
         </div>
     </div>

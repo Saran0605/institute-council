@@ -20,6 +20,7 @@
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 
 
+
 </head>
 
 <body>
@@ -111,25 +112,27 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="journal1" class="table table-striped table-bordered">
+                            <table id="journal1" class="table table-striped table-bordered" style="width:fit-content">
                                 <thead style="background-color:black;color:white">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Faculty Name</th>
+                                        <th> Faculty ID</th>
+                                        <th>Type</th>
+                                        <th>Title</th>
+                                        <th>Volume</th>
+                                        <th> Issue Number</th>
+                                        <th>Pages</th>
+                                        <th>Date</th>
+                                        <th>Link</th>
+                                        <th>No of Author</th>
+                                        <th> Authors Position</th>
+                                        <th>Status</th>
+                                        <th>File</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
+
                                     </tr>
 
                                 </tbody>
@@ -142,7 +145,7 @@
 
             </div>
             <footer class="footer text-center">
-                All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
+                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
             </footer>
         </div>
     </div>
@@ -168,9 +171,11 @@
     <script src="assets/libs/flot/jquery.flot.stack.js"></script>
     <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
     <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="dist/js/pages/chart/chart-page-init.js"></script>
+
     <!--   datatable link -->
+
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
     <script>
         $(document).ready(function() {
