@@ -24,8 +24,8 @@
 
         }
         .isize{
-            width: 30px;
-            height: 30px;
+            width: 35px;
+            height: 35px;
             margin-bottom: 10;
         }
     </style>
@@ -121,7 +121,7 @@
                     <div class="col-md-6 col-lg-3 ">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black "><img src="assets/images/hindex.png" class="isize"></h1>
+                                <img src="assets/images/hindex.png" class="isize">
                                 <h6 class="text-black">HIndex</h6>
                                 <h3>1003</h3>
                             </div>
@@ -131,7 +131,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <img src="assets/images/Citations.png"alt="citations" class="isize">
                                 <h6 class="text-black">Citations</h6>
                                 <h3>10</h3>
 
@@ -142,7 +142,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-collage"></i></h1>
+                                <img src="assets/images/Awareness Programs.png"alt="Awareness Programs" class="isize">
                                 <h6 class="text-black">Awareness Programs</h6>
                                 <h3>103</h3>
 
@@ -153,7 +153,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
+                                <img src="assets/images/conference.png" alt="Conference" class="isize">
                                 <h6 class="text-black">Conference</h6>
                                 <h3>03</h3>
 
@@ -166,7 +166,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <img src="assets/images/Consultancy.png" alt="Consultancy" class="isize">
                                 <h6 class="text-black">Consultancy</h6>
                                 <h3>10</h3>
 
@@ -177,7 +177,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <img src="assets/images/Funded Projects.png" alt="Funded Projects" class="isize">
                                 <h6 class="text-black">Funded Projects</h6>
                                 <h3>100i3</h3>
 
@@ -188,7 +188,7 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover  cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-collage"></i></h1>
+                               <img src="assets/images/Journal.png" alt="Journal" class="isize">
                                 <h6 class="text-black">Journal</h6>
                                 <h3>100883</h3>
 
@@ -199,10 +199,73 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
+                               <img src="assets/images/Patents.png" alt="Patents" class="isize">
                                 <h6 class="text-black">Patents</h6>
                                 <h3>1003</h3>
 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-xl-6">
+                    <div class="card">
+                        <div class="card-header">
+                            <h1 class="header-title">Overall Target Stats (By Count)</h1>
+                        </div>
+                        <div class="card-body">
+                            <div class="mb-3">
+                                <h4 class="header-title">Awareness Program</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="6.666666666666667"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 6.667%;">7%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 15</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h4 class="header-title">Conference</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="18.181818181818183"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 18.182%;">18%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 2</span><span>Target: 11</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h4 class="header-title">Consultancy</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="7.6923076923076925"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 7.692%;">8%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 13</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h4 class="header-title">Funded Projects</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
+                                        aria-valuemax="100" style="width: 5%;">5%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 20</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h4 class="header-title">Journal</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="2.631578947368421"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 2.632%;">3%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 38</span>
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <h4 class="header-title">Patents</h4>
+                                <div class="progress" style="height:15px">
+                                    <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="4.166666666666666"
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 4.167%;">4%</div>
+                                </div>
+                                <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 24</span>
+                                </div>
                             </div>
                         </div>
                     </div>
