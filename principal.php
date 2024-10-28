@@ -226,7 +226,7 @@
                                 <h4 class="header-title">Conference</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="18.181818181818183"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 18.182%;">18%</div>
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 18.182%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 2</span><span>Target: 11</span>
                                 </div>
@@ -235,7 +235,7 @@
                                 <h4 class="header-title">Consultancy</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="7.6923076923076925"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 7.692%;">8%</div>
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 7.692%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 13</span>
                                 </div>
@@ -244,7 +244,7 @@
                                 <h4 class="header-title">Funded Projects</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
-                                        aria-valuemax="100" style="width: 5%;">5%</div>
+                                        aria-valuemax="100" style="width: 5%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 20</span>
                                 </div>
@@ -253,7 +253,7 @@
                                 <h4 class="header-title">Journal</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="2.631578947368421"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 2.632%;">3%</div>
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 2.632%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 38</span>
                                 </div>
@@ -262,7 +262,7 @@
                                 <h4 class="header-title">Patents</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="4.166666666666666"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 4.167%;">4%</div>
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 4.167%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 24</span>
                                 </div>

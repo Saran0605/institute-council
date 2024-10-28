@@ -2,6 +2,21 @@
 <html dir="ltr" lang="en">
 
 <head>
+<style>
+/* Change pagination text color to black */
+.dataTables_wrapper .dataTables_paginate .paginate_button {
+    color: black !important;
+}
+
+/* Ensure active, hover, and focus states are also black */
+.dataTables_wrapper .dataTables_paginate .paginate_button:hover,
+.dataTables_wrapper .dataTables_paginate .paginate_button:active,
+.dataTables_wrapper .dataTables_paginate .paginate_button.current {
+    color: black !important;
+    background-color: transparent !important; /* Optional: remove background */
+    border: none !important; /* Optional: remove border */
+}
+</style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -174,7 +189,9 @@
 
     <script>
         $(document).ready(function() {
-            $('#conference').DataTable();
+            $('#conference').DataTable({
+                
+            });
         } );
     </script>
 
