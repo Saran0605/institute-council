@@ -217,7 +217,7 @@
                                 <h4 class="header-title">Awareness Program</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="6.666666666666667"
-                                        aria-valuemin="0" aria-valuemax="100" style="width: 6.667%;">7%</div>
+                                        aria-valuemin="0" aria-valuemax="100" style="width: 6.667%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 15</span>
                                 </div>
