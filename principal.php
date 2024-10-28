@@ -9,8 +9,13 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <!-- Favicon icon -->
+<<<<<<< HEAD
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Institute Council</title>
+=======
+    <link rel="icon" type="image/png" sizes="16x16" href="">
+    <title>Institute-Council</title>
+>>>>>>> 9c4407bf7feee0eb1c3a9496e8b0d803f98e5257
     <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
@@ -28,9 +33,9 @@
     <div id="main-wrapper">
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
-                <div class="navbar-header" data-logobg="skin5">
-                    <!-- This is for the sidebar toggle which is visible on mobile only -->
+               <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
+<<<<<<< HEAD
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
                         <b class="logo-icon p-l-10">
@@ -39,6 +44,14 @@
                         </b>
                         <span class="logo-text">
                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
+=======
+                    <a class="navbar-brand" href="principal.php">
+                        <b class="logo-icon p-l-10" style="padding-left:0px; border-left:0px;">
+                            <img src="assets\images\logo-icon.png" alt="homepage" class="light-logo" />
+                        </b>
+                        <span class="logo-text">
+                            <img src="assets\images\logo-text.png" alt="homepage" class="light-logo" />
+>>>>>>> 9c4407bf7feee0eb1c3a9496e8b0d803f98e5257
                         </span>
                     </a>
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
@@ -96,7 +109,8 @@
                             <nav aria-label="breadcrumb">
                                 <ol class="breadcrumb">
                                     <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
+                                    <li class="breadcrumb-item active" aria-current="page">Dashboard</li>
+                                    
                                 </ol>
                             </nav>
                         </div>
@@ -104,8 +118,92 @@
                 </div>
             </div>
             <div class="container-fluid">
+<<<<<<< HEAD
 
 
+=======
+            <div class="row">
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3 cardbox">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <h6 class="text-black">HIndex</h6>
+                                <h3>1003</h3>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h6 class="text-black">Citations</h6>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-collage"></i></h1>
+                                <h6 class="text-black">Awareness Programs</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
+                                <h6 class="text-black">Conference</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-view-dashboard"></i></h1>
+                                <h6 class="text-black">Consultancy</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-chart-areaspline"></i></h1>
+                                <h6 class="text-black">Funded Projects</h6>
+                            </div>
+                        </div>
+                    </div>
+                     <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-collage"></i></h1>
+                                <h6 class="text-black">Journal</h6>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- Column -->
+                    <div class="col-md-6 col-lg-3">
+                        <div class="card card-hover">
+                            <div class="box bg-light text-center">
+                                <h1 class="font-light text-black"><i class="mdi mdi-border-outside"></i></h1>
+                                <h6 class="text-black">Patents</h6>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+               
+                
+>>>>>>> 9c4407bf7feee0eb1c3a9496e8b0d803f98e5257
             </div>
             <footer class="footer text-center">
                 All Rights Reserved by Matrix-admin. Designed and Developed by <a href="https://wrappixel.com">WrapPixel</a>.
