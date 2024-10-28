@@ -174,7 +174,7 @@
 
     <script>
         $(document).ready(function() {
-            $('# consultancy1').DataTable();
+            $('#consultancy1').DataTable();
         });
     </script>
 </body>
