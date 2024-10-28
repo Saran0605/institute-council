@@ -207,7 +207,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-xl-6">
+                <div class="col-xl-6 row">
                     <div class="card">
                         <div class="card-header">
                             <h1 class="header-title">Overall Target Stats (By Count)</h1>
