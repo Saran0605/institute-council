@@ -28,35 +28,17 @@
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                     <a class="navbar-brand" href="index.html">
-<<<<<<< HEAD
-                        <!-- Logo icon -->
-                        <b class="logo-icon p-l-10">
-=======
                         <b class="logo-icon p-l-10" style="padding-left:0px; border-left:0px;">
->>>>>>> 2f7937f5b7dd3bc53e436a79949218becd27fb0f
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <span class="logo-text">
-<<<<<<< HEAD
-                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
-=======
                             <img src="assets/images/logo-text.png" alt="homepage" class="light-logo" />
->>>>>>> 2f7937f5b7dd3bc53e436a79949218becd27fb0f
                         </span>
                     </a>
                     <a class="topbartoggler d-block d-md-none waves-effect waves-light" href="javascript:void(0)" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><i class="ti-more"></i></a>
                 </div>
                 <div class="navbar-collapse collapse" id="navbarSupportedContent" data-navbarbg="skin5">
                     <ul class="navbar-nav float-left mr-auto">
-<<<<<<< HEAD
-                        <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>                       
-                    </ul>
-                    <ul class="navbar-nav float-right">
-                        <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
-                            <div class="dropdown-menu dropdown-menu-right user-dd animated">  
-                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-=======
                         <li class="nav-item d-none d-md-block"><a class="nav-link sidebartoggler waves-effect waves-light" href="javascript:void(0)" data-sidebartype="mini-sidebar"><i class="mdi mdi-menu font-24"></i></a></li>
                     </ul>
                     <ul class="navbar-nav float-right">
@@ -68,7 +50,6 @@
                                 <a class="dropdown-item" href="javascript:void(0)"><i
                                         class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                                 <div class="dropdown-divider"></div>
->>>>>>> 2f7937f5b7dd3bc53e436a79949218becd27fb0f
                             </div>
                         </li>
                     </ul>
