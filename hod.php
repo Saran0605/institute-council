@@ -95,6 +95,8 @@
     <!-- Side nav button and logout dropdown -->
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
+    <!--Wave Effects -->
+    <script src="dist/js/waves.js"></script>
     <!--Menu sidebar -->
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
