@@ -18,7 +18,25 @@
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <style>
+        .basic-nav {
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            padding: 10px 151.6px;
+            border: 2px solid while;
+            text-align: center;
+            background-color: white;
+        
 
+        }
+
+        .basic-bar a:hover {
+            background-color: blue;
+            color: white;
+         
+        }
+    </style>
 </head>
 
 <body>
@@ -134,6 +152,16 @@
                 </div>
             </div>
             <div class="container-fluid">
+                <br>
+                <div class="card">
+                    <nav class="navbar navbar-light bg-light basic-bar">
+                        <a href="#" class="basic-nav">Entries</a>
+                        <a href="#" class="basic-nav">Report</a>
+                        <a href="#" class="basic-nav">Statistics</a>
+                    </nav>
+
+                </div>
+
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
