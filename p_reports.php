@@ -166,7 +166,7 @@
                 <div class="card">
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table id="consultancy1" class="table table-striped table-bordered">
+                            <table id="report1" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white">
                                     <tr>
                                         <th>Name</th>
