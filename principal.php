@@ -244,7 +244,7 @@
                                 <h4 class="header-title">Funded Projects</h4>
                                 <div class="progress" style="height:15px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
-                                        aria-valuemax="100" style="width: 5%;"></div>
+                                        aria-valuemax="100" style="width: 5%;">gigi</div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 20</span>
                                 </div>

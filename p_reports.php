@@ -2,6 +2,7 @@
 <html dir="ltr" lang="en">
 
 <head>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -18,26 +19,8 @@
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-    
-    <style>
-     .basic-nav {
-    text-decoration: none;
-    color: black;
-    margin: 0;
-    padding: 10px 151.6px;
-    border: 2px solid while;
-    text-align: center;
-    background-color: white;
 
-
-}
-
-.basic-bar a:hover {
-    background-color: blue;
-    color: white;
-
-}
-    </style>
+   
 </head>
 
 <body>
@@ -153,48 +136,7 @@
                 </div>
             </div>
             <div class="container-fluid">
-                <br>
-                <div class="card">
-                    <nav class="navbar navbar-light bg-light basic-bar">
-                        <a href="#" class="basic-nav">Entries</a>
-                        <a href="#" class="basic-nav">Report</a>
-                        <a href="#" class="basic-nav">Statistics</a>
-                    </nav>
-
-                </div>
-
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="consultancy1" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
-
-                                </tbody>
-
-                            </table>
-                        </div>
-
-                    </div>
-                </div>
-
+               
 
 
             </div>
@@ -230,7 +172,7 @@
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
     <script>
-        $(document).ready(function() {
+        $(document).ready(function () {
             $('#report1').DataTable();
         });
     </script>
