@@ -80,14 +80,8 @@
                                 <li class="sidebar-item"><a href="p_awareness.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Awareness Program</span></a></li>
                                 <li class="sidebar-item"><a href="p_conference.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Conferences</span></a></li>
                                 <li class="sidebar-item"><a href="p_patterns.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Patterns</span></a></li>
-
-
-
-
                             </ul>
                         </li>
-
-
                     </ul>
                 </nav>
             </div>

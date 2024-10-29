@@ -18,24 +18,25 @@
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    
     <style>
-        .basic-nav {
-            text-decoration: none;
-            color: black;
-            margin: 0;
-            padding: 10px 151.6px;
-            border: 2px solid while;
-            text-align: center;
-            background-color: white;
-        
+     .basic-nav {
+    text-decoration: none;
+    color: black;
+    margin: 0;
+    padding: 10px 151.6px;
+    border: 2px solid while;
+    text-align: center;
+    background-color: white;
 
-        }
 
-        .basic-bar a:hover {
-            background-color: blue;
-            color: white;
-         
-        }
+}
+
+.basic-bar a:hover {
+    background-color: blue;
+    color: white;
+
+}
     </style>
 </head>
 
