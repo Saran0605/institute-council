@@ -25,7 +25,7 @@
     text-decoration: none;
     color: black;
     margin: 0;
-    padding: 10px 162.3px;
+    padding: 10px 240px;
     border: 2px solid while;
     text-align: center;
     background-color: white;
