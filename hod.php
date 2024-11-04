@@ -185,7 +185,7 @@ include("db.php");
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="hod.php">
                         <b class="logo-icon p-l-1">
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
                         </b>
@@ -251,6 +251,8 @@ include("db.php");
                 </div>
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
+
+                        <!------Target Tab--------->
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                             <div class="row">
                                 <div class="col-xl-6">
@@ -307,10 +309,10 @@ include("db.php");
                                                         <input type="number" value="0" id="patents" name="patents" fdprocessedid="zgm22i">
                                                     </div>
                                                     <button type="submit" class="btn btn-primary">Set Target</button><br>
-                                                
-                                                <div class="modal-footer"style="background-color:white">
-                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                                </div>
+
+                                                    <div class="modal-footer" style="background-color:white">
+                                                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                    </div>
                                                 </div>
                                             </div>
                                         </div>
@@ -319,9 +321,11 @@ include("db.php");
                             </div>
                         </div>
 
+                        <!------journel tab------>
+
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
                             <br>
-                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#journalModal">Add Journal</button>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#journalModal">Add +</button>
                             <br> <br>
                             <table id="journalTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
@@ -431,9 +435,11 @@ include("db.php");
                             </div>
                         </div>
 
-
+                        <!----------Consultancy tab------->
                         <div class="tab-pane fade" id="consultancytab" role="tabpanel" aria-labelledby="consultancy-tab">
                             <br>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#consultancyModal">Add +</button>
+                            <br> <br>
                             <table id="consultancyTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -453,6 +459,66 @@ include("db.php");
                                 </tbody>
                             </table>
                         </div>
+
+                        <!-----Consultancy modal---->
+                        <div class="modal fade" id="consultancyModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="journalModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addNewJournal">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>Faculty Name</label>
+                                                <input type="text" id="facName" name="facName" placeholder="enter faculty's name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" id="title" name="title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="industryType">Industry type</label>
+                                                <select id="industryType" name="industryType" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Technology">Technology</option>
+                                                    <option value="Healthcare">Healthcare</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date">Date</label>
+                                                <input type="date" class="form-control" id="date" name="date">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="isMousigned">Is MOU Signed</label>
+                                                <select id="isMousigned" name="isMousigned" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Earnings</label>
+                                                <input type="number" id="earnings" name="earnings">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Upload File</label>
+                                                <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
+                                            </div>
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
                             <br>
