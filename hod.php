@@ -205,15 +205,18 @@
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
+                                        <th>Organizer</th>
+                                        <th>Publisher-Name</th>
+                                        <th>Indexing-Details</th>
+                                        <th>Level</th>
                                         <th>Date</th>
+                                        <th>Title-of-papers</th>
+                                        <th>ISBN</th>
+                                        <th>No-of-Authors</th>
+                                        <th>Authors-position</th>
                                         <th>Link</th>
-                                        <th>No.of Author</th>
-                                        <th>Authors Position</th>
-                                        <th>File</th>
-                                        <th>Action</th>
+                                        <th>Upload</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -228,15 +231,13 @@
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>S.No</th>
+                                        <th>TItle</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
-                                        <th>Date</th>
-                                        <th>Link</th>
-                                        <th>No.of Author</th>
+                                        <th>Field of Innovation</th>
+                                        <th>Filling Date</th>
+                                        <th>Status</th>
+                                        <th>No.of Authors</th>
                                         <th>Authors Position</th>
                                         <th>File</th>
                                         <th>Action</th>
