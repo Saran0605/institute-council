@@ -235,17 +235,10 @@
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
     <script>
-<<<<<<< HEAD
-        $(document).ready(function () {
-            $('#conference1').DataTable({
-
-            });
-=======
         $(document).ready(function() {
             // Initialize DataTables for each table
             $('#journalTable').DataTable();
             $('#consultancyTable').DataTable();
->>>>>>> 8bd58a0c28ec0b37049a2bfcb1fbb1731fddf572
         });
     </script>
 
