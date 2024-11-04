@@ -208,14 +208,14 @@
                     </div>
                 </div>
                 <div class="col-xl-6 row">
-                    <div class="card">
+                    <div class="card" style="width:1300px">
                         <div class="card-header">
                             <h1 class="header-title">Overall Target Stats (By Count)</h1>
                         </div>
                         <div class="card-body">
                             <div class="mb-3">
                                 <h4 class="header-title">Awareness Program</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="6.666666666666667"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 6.667%;"></div>
                                 </div>
@@ -224,7 +224,7 @@
                             </div>
                             <div class="mb-3">
                                 <h4 class="header-title">Conference</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="18.181818181818183"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 18.182%;"></div>
                                 </div>
@@ -233,7 +233,7 @@
                             </div>
                             <div class="mb-3">
                                 <h4 class="header-title">Consultancy</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="7.6923076923076925"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 7.692%;"></div>
                                 </div>
@@ -242,16 +242,16 @@
                             </div>
                             <div class="mb-3">
                                 <h4 class="header-title">Funded Projects</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="5" aria-valuemin="0"
-                                        aria-valuemax="100" style="width: 5%;">gigi</div>
+                                        aria-valuemax="100" style="width: 5%;"></div>
                                 </div>
                                 <div class="d-flex justify-content-between"><span>Count: 1</span><span>Target: 20</span>
                                 </div>
                             </div>
                             <div class="mb-3">
                                 <h4 class="header-title">Journal</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="2.631578947368421"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 2.632%;"></div>
                                 </div>
@@ -260,7 +260,7 @@
                             </div>
                             <div class="mb-3">
                                 <h4 class="header-title">Patents</h4>
-                                <div class="progress" style="height:15px">
+                                <div class="progress" style="height:20px">
                                     <div role="progressbar" class="progress-bar bg-dark" aria-valuenow="4.166666666666666"
                                         aria-valuemin="0" aria-valuemax="100" style="width: 4.167%;"></div>
                                 </div>
