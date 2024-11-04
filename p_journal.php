@@ -46,6 +46,10 @@
             margin-top: 1rem !important;
             margin-bottom: 1rem !important;
         }
+
+        .table {
+            margin-top: 10px;
+        }
     </style>
 </head>
 
@@ -119,7 +123,8 @@
             </div>
             <div class="container-fluid">
 
-                <div style="width: 100%;">
+                <div class="c" style="width: 100%;">
+
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
                             <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
@@ -131,88 +136,50 @@
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
                         </li>
                     </ul>
-                    <div class="card">
-                        <div class="tab-content" id="researchTabContent">
-                            <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
-                                <table id="funds1" class="table table-striped table-bordered">
-                                    <thead style="background-color:black;color:white;width:50px;">
-                                        <tr>
-                                            <th>Faculty Name</th>
-                                            <th>Faculty ID</th>
-                                            <th>Tittle</th>
-                                            <th>Type</th>
-                                            <th>Project ID</th>
-                                            <th>Funding Agency</th>
-                                            <th>Link</th>
-                                            <th>Requested Amount</th>
-                                            <th>Status</th>
-                                            <th>Actions</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
+                </div>
+                <div class="card">
+                    <div class="tab-content" id="researchTabContent">
+                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+                            <br>
+                            <table id="journalTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Tittle</th>
+                                        <th>Type</th>
+                                        <th>Project ID</th>
+                                        <th>Funding Agency</th>
+                                        <th>Link</th>
+                                        <th>Requested Amount</th>
+                                        <th>Status</th>
+                                        <th>Actions</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
 
 
-                                    </tbody>
+                                </tbody>
 
-                                </table>
-                            </div>
+                            </table>
+                        </div>
 
-                            <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                                <table class="table table-striped mt-3" id="journalTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Journal Title</th>
-                                            <th>Author</th>
-                                            <th>Publication Date</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Journal 1</td>
-                                            <td>Author 1</td>
-                                            <td>2024/06/15</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Journal 2</td>
-                                            <td>Author 2</td>
-                                            <td>2024/07/20</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
+                            <!-- table veganum  -->
+                        </div>
 
-                            <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
-                                <table class="table table-striped mt-3" id="consultancyTable">
-                                    <thead>
-                                        <tr>
-                                            <th>Consultant</th>
-                                            <th>Project</th>
-                                            <th>Duration</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Consultant 1</td>
-                                            <td>Project 1</td>
-                                            <td>6 Months</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Consultant 2</td>
-                                            <td>Project 2</td>
-                                            <td>1 Year</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
+                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                            <!-- table veganum  -->
                         </div>
                     </div>
                 </div>
             </div>
-            <footer class="footer text-center">
-                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
-            </footer>
         </div>
+        <footer class="footer text-center">
+            2024 © M.Kumarasamy College of Engineering All Rights Reserved.
+        </footer>
+    </div>
     </div>
 
     <!-- Scripts -->
