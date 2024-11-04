@@ -111,16 +111,16 @@
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#funded_projects" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#awareness_program" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#conference" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#patent" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
                         </li>
                     </ul>
                 </div>
