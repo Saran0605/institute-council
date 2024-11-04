@@ -1,3 +1,9 @@
+<?php
+include('db.php');
+$query = "SELECT * FROM awarenessprogram";
+$result = mysqli_query(mysql: $conn, query: $query);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -158,7 +164,7 @@
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                             <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
+                            <table id="awarenessTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
@@ -172,7 +178,21 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php 
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                    <td><?php echo $row['faculty_name']; ?></td>
+                                    <td><?php echo $row['faculty_id']; ?></td>
+                                    <td><?php echo $row['organiserName']; ?></td>
+                                    <td><?php echo $row['programName']; ?></td>
+                                    <td><?php echo $row['placeHeld']; ?></td>
+                                    <td><?php echo $row['programDetails']; ?></td>
+                                    <td><?php echo $row['speaker']; ?></td>
+                                    <td><?php echo $row['speaker']; ?></td>
+                                    </tr>
+                                    <?php 
+                                        }
+                                    ?>
                                 </tbody>
 
                             </table>
@@ -180,7 +200,42 @@
                         </div>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                            <!-- table veganum  -->
+                        <br>
+                            <table id="awarenessTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Department Name</th>
+                                        <th>Faculty count</th>
+                                        <th>Total Count</th>
+                                        <th>This Month Target</th>
+                                        <th>This Month Count</th>
+                                        <th>Progress</th>
+                                        <th>Deviations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $s = 1; 
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    </tr>
+                                    <?php
+                                        $s++;
+                                        }
+                                    ?>
+                                </tbody>
+
+                            </table>
+                            <br>
                         </div>
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
@@ -209,8 +264,7 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
+            $('#awarenessTable').DataTable();
         });
     </script>
 </body>
