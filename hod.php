@@ -12,7 +12,46 @@
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+     <!--   datatable link -->
+     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <style>
+        .bg-nav-pills {
+            background-color: #f8f9fa;
+        }
 
+        .nav-pills .nav-link {
+            color: #000;
+            font-weight: 500;
+            padding: 12px 2x;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-justified .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* table class name */
+        .my-3 {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .table {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -72,16 +111,16 @@
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#funded_projects" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#awareness_program" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#conference" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#patent" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
                         </li>
                     </ul>
                 </div>
@@ -197,15 +236,18 @@
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
+                                        <th>Organizer</th>
+                                        <th>Publisher-Name</th>
+                                        <th>Indexing-Details</th>
+                                        <th>Level</th>
                                         <th>Date</th>
+                                        <th>Title-of-papers</th>
+                                        <th>ISBN</th>
+                                        <th>No-of-Authors</th>
+                                        <th>Authors-position</th>
                                         <th>Link</th>
-                                        <th>No.of Author</th>
-                                        <th>Authors Position</th>
-                                        <th>File</th>
-                                        <th>Action</th>
+                                        <th>Upload</th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
@@ -220,15 +262,13 @@
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>S.No</th>
+                                        <th>TItle</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
-                                        <th>Date</th>
-                                        <th>Link</th>
-                                        <th>No.of Author</th>
+                                        <th>Field of Innovation</th>
+                                        <th>Filling Date</th>
+                                        <th>Status</th>
+                                        <th>No.of Authors</th>
                                         <th>Authors Position</th>
                                         <th>File</th>
                                         <th>Action</th>
@@ -257,6 +297,25 @@
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
+    <!-- DataTables -->
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTables for each table
+            $('#journalTable').DataTable();
+            $('#consultancyTable').DataTable();
+            $('#funded_projectsTable').DataTable();
+            $('#awareness_programTable').DataTable();
+            $('#conferenceTable').DataTable();
+            $('#patentTable').DataTable();
+
+
+
+
+        });
+    </script>
 
 </body>
 
