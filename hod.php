@@ -522,6 +522,8 @@ include("db.php");
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
+    <!-- jQuery -->
+    <script src="path/to/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
