@@ -12,8 +12,8 @@
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
-     <!--   datatable link -->
-     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
+    <!--   datatable link -->
+    <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
     <style>
         .bg-nav-pills {
@@ -127,8 +127,22 @@
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+                            <div class="row">
+                                <div class="col-xl-6">
+                                    <div class="card">
+                                        <div class="card-body">
+                                            <div class="d-flex justify-content-between align-items-center">
+                                                <h4 class="header-title">Current Month Target</h4><button class="btn btn-dark">Set Month's Target</button>
+                                            </div>
+                                            <li class="list-group-item d-flex justify-content-between align-items-center"><span class="text-danger">Target not set for the current month</span></li>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                         </div>
+
+
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
                             <br>
@@ -158,7 +172,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
-                        <br>
+                            <br>
                             <table id="consultancyTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -180,7 +194,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
-                        <br>
+                            <br>
                             <table id="funded_projectsTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -205,7 +219,7 @@
                         </div>
 
                         <div class="tab-pane fade" id="awareness_program" role="tabpanel" aria-labelledby="awareness_program-tab">
-                        <br>
+                            <br>
                             <table id="awareness_programTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -228,38 +242,38 @@
                         </div>
 
                         <div class="tab-pane fade" id="conference" role="tabpanel" aria-labelledby="conference-tab">
-                        <br>
-                        <div class="table-responsive">
-                            <table id="conferenceTable" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white;width:50px;">
-                                    <tr>
-                                        <th>S.No</th>
-                                        <th>Faculty Name</th>
-                                        <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Organizer</th>
-                                        <th>Publisher Name</th>
-                                        <th>Indexing-Details</th>
-                                        <th>Level</th>
-                                        <th>Date</th>
-                                        <th>Title of papers</th>
-                                        <th>ISBN</th>
-                                        <th>No of Authors</th>
-                                        <th>Authors position</th>
-                                        <th>Link</th>
-                                        <th>Upload</th>
+                            <br>
+                            <div class="table-responsive">
+                                <table id="conferenceTable" class="table table-striped table-bordered">
+                                    <thead style="background-color:black;color:white;width:50px;">
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Faculty Name</th>
+                                            <th>Faculty ID</th>
+                                            <th>Tittle</th>
+                                            <th>Organizer</th>
+                                            <th>Publisher Name</th>
+                                            <th>Indexing-Details</th>
+                                            <th>Level</th>
+                                            <th>Date</th>
+                                            <th>Title of papers</th>
+                                            <th>ISBN</th>
+                                            <th>No of Authors</th>
+                                            <th>Authors position</th>
+                                            <th>Link</th>
+                                            <th>Upload</th>
 
-                                    </tr>
-                                </thead>
-                                <tbody>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
 
-                                </tbody>
-                            </table>
+                                    </tbody>
+                                </table>
                             </div>
                         </div>
 
                         <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
-                        <br>
+                            <br>
                             <table id="patentTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
