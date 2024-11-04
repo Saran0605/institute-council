@@ -39,13 +39,10 @@
             color: white;
 
         }
-<<<<<<< HEAD
         .basic-nav a:hover {
     background-color: blue;
     color: white;
 }
-=======
->>>>>>> d4a4680a62ef5110798c8e4af320bb46c07943da
     </style>
 
 </head>
@@ -165,20 +162,12 @@
             <div class="container-fluid">
                 <br>
                 <div class="card">
-<<<<<<< HEAD
 
                     <ul class="nav nav-tabs" id="tableNav" role="tablist">
                         <li class="nav-item" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
                         <li class="nav-item" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false">Faculty Wise Report</a></li>
                     </ul>
 
-=======
-                    <nav class="navbar navbar-light bg-light basic-bar">
-                        <a href="#" class="basic-nav">Department Report</a>
-                        <a href="#" class="basic-nav">Faculty Wise Report</a>
-
-                    </nav>
->>>>>>> d4a4680a62ef5110798c8e4af320bb46c07943da
 
                 </div>
 
