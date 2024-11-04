@@ -172,20 +172,20 @@ $result = mysqli_query(mysql: $conn, query: $query);
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <?php 
-                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    <?php
+                                    while ($row = mysqli_fetch_assoc($result)) {
                                     ?><tr>
-                                    <td><?php echo $row['faculty_name']; ?></td>
-                                    <td><?php echo $row['faculty_id']; ?></td>
-                                    <td><?php echo $row['organiserName']; ?></td>
-                                    <td><?php echo $row['programName']; ?></td>
-                                    <td><?php echo $row['placeHeld']; ?></td>
-                                    <td><?php echo $row['programDetails']; ?></td>
-                                    <td><?php echo $row['speaker']; ?></td>
-                                    <td><?php echo $row['speaker']; ?></td>
-                                    </tr>
-                                    <?php 
-                                        }
+                                            <td><?php echo $row['faculty_name']; ?></td>
+                                            <td><?php echo $row['faculty_id']; ?></td>
+                                            <td><?php echo $row['organiserName']; ?></td>
+                                            <td><?php echo $row['programName']; ?></td>
+                                            <td><?php echo $row['placeHeld']; ?></td>
+                                            <td><?php echo $row['programDetails']; ?></td>
+                                            <td><?php echo $row['speaker']; ?></td>
+                                            <td><?php echo $row['speaker']; ?></td>
+                                        </tr>
+                                    <?php
+                                    }
                                     ?>
                                 </tbody>
 
@@ -194,7 +194,7 @@ $result = mysqli_query(mysql: $conn, query: $query);
                         </div>
 
                         <div class="tab-pane fade" id="Report" role="tabpanel" aria-labelledby="Report-tab">
-                        <br>
+                            <br>
                             <table id="ReportTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -210,21 +210,21 @@ $result = mysqli_query(mysql: $conn, query: $query);
                                 </thead>
                                 <tbody>
                                     <?php
-                                        $s = 1; 
-                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
                                     ?><tr>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    <td></td>
-                                    </tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
                                     <?php
                                         $s++;
-                                        }
+                                    }
                                     ?>
                                 </tbody>
 
@@ -237,12 +237,12 @@ $result = mysqli_query(mysql: $conn, query: $query);
                         </div>
                     </div>
                 </div>
-
             </div>
-            <footer class="footer text-center">
-                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
-            </footer>
         </div>
+        <footer class="footer text-center">
+            2024 © M.Kumarasamy College of Engineering All Rights Reserved.
+        </footer>
+    </div>
     </div>
     <!-- Scripts -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
