@@ -196,7 +196,7 @@ $result = mysqli_query($conn, $query);
                             <table id="conferenceTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
-                                        <th>S.No</th>
+                                       
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Title</th>
@@ -214,11 +214,11 @@ $result = mysqli_query($conn, $query);
                                 <tbody>
                                     <!--loop for featching rows -->
                                     <?php
-                                    $s = 1;
+                                  
                                     while ($row = mysqli_fetch_array($result)) {
                                     ?>
                                         <tr>
-                                            <th><?php echo $s ?></th>
+                                           
                                             <th><?php echo $row['faculty_name'] ?></th>
                                             <th><?php echo $row["faculty_id"] ?></th>
                                             <th><?php echo $row["title"] ?></th>
@@ -233,7 +233,7 @@ $result = mysqli_query($conn, $query);
                                             <th><?php echo $row["authors_position"] ?></th>
                                         </tr>
                                     <?php
-                                        $s++;
+                                        
                                     } ?>
                                 </tbody>
 
@@ -258,7 +258,7 @@ $result = mysqli_query($conn, $query);
                                 </thead>
                                 <tbody>
                                     <?php
-                                    $s = 1;
+                                    
                                     while ($row = mysqli_fetch_assoc($result)) {
                                     ?><tr>
                                             <td></td>
@@ -271,7 +271,7 @@ $result = mysqli_query($conn, $query);
                                             <td></td>
                                         </tr>
                                     <?php
-                                        $s++;
+                                       
                                     }
                                     ?>
                                 </tbody>
