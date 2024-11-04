@@ -1,3 +1,7 @@
+<?php
+include("db.php");
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -50,6 +54,127 @@
 
         .table {
             margin-top: 10px;
+        }
+
+        /* Modal Overlay */
+        .modal.fade {
+            background-color: rgba(0, 0, 0, 0.5);
+            /* Dark overlay */
+        }
+
+        /* Modal Dialog */
+        .modal-dialog {
+            max-width: 600px;
+            /* Set max width for larger screens */
+            margin: 1.75rem auto;
+            /* Center modal vertically */
+        }
+
+        /* Modal Content */
+        .modal-content {
+            border-radius: 8px;
+            /* Rounded corners */
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+            /* Subtle shadow */
+        }
+
+        /* Modal Header */
+        .modal-header {
+            background-color: #007bff;
+            /* Bootstrap primary color */
+            color: white;
+            /* White text color */
+            border-bottom: none;
+            /* Remove border */
+        }
+
+        .modal-title {
+            font-weight: 600;
+            /* Bold title */
+        }
+
+        /* Close Button */
+        .close {
+            color: white;
+            /* White close button */
+        }
+
+        /* Modal Body */
+        .modal-body {
+            background-color: #f8f9fa;
+            /* Light background color */
+            padding: 20px;
+            /* Padding around content */
+        }
+
+        /* Form Labels */
+        .modal-body label {
+            font-weight: 500;
+            /* Semi-bold labels */
+        }
+
+        /* Form Row */
+        .form-row {
+            display: flex;
+            /* Flexbox layout */
+            flex-wrap: wrap;
+            /* Wrap on smaller screens */
+        }
+
+        /* Form Group */
+        .form-group {
+            flex: 1;
+            /* Take available space */
+            min-width: 250px;
+            /* Minimum width for each input */
+            margin-bottom: 15px;
+            /* Spacing between inputs */
+        }
+
+        /* Input Fields */
+        .modal-body input[type="text"],
+        .modal-body input[type="number"],
+        .modal-body input[type="file"] {
+            width: 100%;
+            /* Full width inputs */
+            padding: 10px;
+            /* Padding inside inputs */
+            border: 1px solid #ced4da;
+            /* Light border */
+            border-radius: 4px;
+            /* Rounded input corners */
+            transition: border-color 0.3s;
+            /* Transition effect */
+        }
+
+        .modal-body input[type="text"]:focus,
+        .modal-body input[type="number"]:focus {
+            border-color: #007bff;
+            /* Change border color on focus */
+            outline: none;
+            /* Remove outline */
+        }
+
+        /* Modal Footer */
+        .modal-footer {
+            border-top: none;
+            /* Remove border */
+        }
+
+        .modal-footer .btn {
+            width: 100px;
+            /* Set a fixed width for buttons */
+        }
+
+        .modal-footer .btn-secondary {
+            background-color: #6c757d;
+            /* Secondary button color */
+        }
+
+        /* Add a hover effect for buttons */
+        .modal-footer .btn:hover {
+            opacity: 0.9;
+            /* Slightly fade on hover */
         }
     </style>
 </head>
@@ -142,10 +267,10 @@
 
                         </div>
 
-
-
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
                             <br>
+                            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#journalModal">Add Journal</button>
+                            <br> <br>
                             <table id="journalTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -170,6 +295,90 @@
                                 </tbody>
                             </table>
                         </div>
+
+                        <!--Modal for Journal-->
+                        <div class="modal fade" id="journalModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="journalModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addNewJournal">
+                                        <div class="modal-body">
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="fName">Enter Name:</label>
+                                                    <input type="text" id="fName" name="fName" placeholder="enter your name">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="fId">Enter Id:</label>
+                                                    <input type="number" id="fId" name="fId" placeholder="enter your id">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="jType">Journal Type:</label>
+                                                <input type="text" id="jType" name="jType" placeholder="enter journal type">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="jTitle">Journal Title:</label>
+                                                <input type="text" id="jTitle" name="jTitle" placeholder="enter journal title">
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="jvolume">Journal Volume:</label>
+                                                    <input type="text" id="jvolume" name="jvolume" placeholder="enter journal volume">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="jisno">Issue Number:</label>
+                                                    <input type="text" id="jisno" name="jisno" placeholder="enter journal issue no">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="jPages">Pages:</label>
+                                                    <input type="text" id="jPages" name="jPages" placeholder="enter no of pages">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="jDate">Date:</label>
+                                                    <input type="text" id="jDate" name="jDate" placeholder="enter journal Date">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="jLink">Link:</label>
+                                                <input type="text" id="jLink" name="jLink" placeholder="enter journal link">
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="jNoAuth">No of Authors:</label>
+                                                    <input type="text" id="jNoAuth" name="jNoAuth" placeholder="enter no of authors">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="jAuthPos">Author Position:</label>
+                                                    <input type="text" id="jAuthPos" name="jAuthPos" placeholder="enter author position">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="jFile">Upload File:</label>
+                                                <input type="file" id="jFile" name="jFile" placeholder="upload journal">
+                                            </div>
+
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
                             <br>
@@ -331,11 +540,38 @@
                 "responsive": true,
             });
             $('#patentTable').DataTable();
-
-
-
-
         });
+
+        $(document).on('submit',"#addNewJournal",function(e){
+            e.preventDefault();
+            var data = new FormData(this);
+            data.append("add_Journal",true);
+
+            $.ajax({
+                    type: "POST",
+                    url: "backend.php",
+                    data: data,
+                    processData: false,
+                    contentType: false,
+                    success: function(response) {
+                        var res = jQuery.parseJSON(response);
+
+                        if (res.status == 200) {
+
+                            alert("Sucessfully!!");
+                            $("#principalModal").modal("hide");
+                            $("#principal_Form")[0].reset();
+                        } else if (res.status == 500) {
+                            alert("Something went wrong. Please try again.");
+                        }
+                    },
+                    error: function(xhr, status, error) {
+                        alert("An error occurred while processing your request.");
+                    },
+                });
+
+
+        })
     </script>
 
 </body>
