@@ -34,15 +34,15 @@
 
         }
 
-        .basic-bar a:hover {
+
+        .nav a:hover {
             background-color: blue;
             color: white;
-
         }
 
-        .basic-nav a:hover {
-            background-color: blue;
-            color: white;
+        .haii{
+            text-decoration: none;
+            color: black;
         }
     </style>
 
@@ -164,9 +164,9 @@
                 <br>
                 <div class="card">
 
-                    <ul class="nav nav-tabs" id="tableNav" role="tablist">
-                        <li class="nav-item" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false">Faculty Wise Report</a></li>
+                    <ul class="nav nav-tabs " id="tableNav" role="tablist">
+                        <li class="nav-item haii" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
+                        <li class="nav-item  haii" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false" >Faculty Wise Report</a></li>
                     </ul>
 
 
