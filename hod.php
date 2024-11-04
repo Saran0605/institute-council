@@ -12,23 +12,56 @@
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
+     <!--   datatable link -->
+     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
+    <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <style>
+        .bg-nav-pills {
+            background-color: #f8f9fa;
+        }
 
+        .nav-pills .nav-link {
+            color: #000;
+            font-weight: 500;
+            padding: 12px 2x;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-justified .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* table class name */
+        .my-3 {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .table {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
-    <div class="preloader">
-        <div class="lds-ripple">
-            <div class="lds-pos"></div>
-            <div class="lds-pos"></div>
-        </div>
-    </div>
     <div id="main-wrapper">
         <header class="topbar" data-navbarbg="skin5">
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                     <a class="navbar-brand" href="index.html">
-                        <b class="logo-icon p-l-10" style="padding-left:0px; border-left:0px;">
+                        <b class="logo-icon p-l-10">
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <span class="logo-text">
@@ -43,13 +76,9 @@
                     </ul>
                     <ul class="navbar-nav float-right">
                         <li class="nav-item dropdown">
-                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href=""
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img
-                                    src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
+                            <a class="nav-link dropdown-toggle text-muted waves-effect waves-dark pro-pic" href="" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><img src="assets/images/users/1.jpg" alt="user" class="rounded-circle" width="31"></a>
                             <div class="dropdown-menu dropdown-menu-right user-dd animated">
-                                <a class="dropdown-item" href="javascript:void(0)"><i
-                                        class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
-                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="javascript:void(0)"><i class="fa fa-power-off m-r-5 m-l-5"></i> Logout</a>
                             </div>
                         </li>
                     </ul>
@@ -57,362 +86,206 @@
             </nav>
         </header>
         <aside class="left-sidebar" data-sidebarbg="skin5">
-            <!-- Sidebar scroll-->
             <div class="scroll-sidebar">
                 <nav class="sidebar-nav">
                     <ul id="sidebarnav" class="p-t-30">
-                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="index.html" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
+                        <li class="sidebar-item"> <a class="sidebar-link waves-effect waves-dark sidebar-link" href="" aria-expanded="false"><i class="mdi mdi-view-dashboard"></i><span class="hide-menu">Dashboard</span></a></li>
                     </ul>
                 </nav>
             </div>
         </aside>
         <div class="page-wrapper">
-            <div class="page-breadcrumb">
-                <div class="row">
-                    <div class="col-12 d-flex no-block align-items-center">
-                        <h4 class="page-title">Dashboard</h4>
-                        <div class="ml-auto text-right">
-                            <nav aria-label="breadcrumb">
-                                <ol class="breadcrumb">
-                                    <li class="breadcrumb-item"><a href="#">Home</a></li>
-                                    <li class="breadcrumb-item active" aria-current="page">Library</li>
-                                </ol>
-                            </nav>
+
+            <div class="container-fluid">
+
+                <div class="c" style="width: 100%;">
+
+                    <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#funded_projects" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#awareness_program" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#conference" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#patent" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="card">
+                    <div class="tab-content" id="researchTabContent">
+                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+
+                        </div>
+
+                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
+                            <br>
+                            <table id="journalTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Type</th>
+                                        <th>Tittle</th>
+                                        <th>Volume</th>
+                                        <th>Issue Number</th>
+                                        <th>Pages</th>
+                                        <th>Date</th>
+                                        <th>Link</th>
+                                        <th>No.of Author</th>
+                                        <th>Authors Position</th>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                        <br>
+                            <table id="consultancyTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Tittle</th>
+                                        <th>Industry Type</th>
+                                        <th>MOU Signed</th>
+                                        <th>earnings</th>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
+                        <br>
+                            <table id="funded_projectsTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Type</th>
+                                        <th>Title</th>
+                                        <th>Project ID</th>
+                                        <th>Funding Agency</th>
+                                        <th>Link</th>
+                                        <th>Requested Amount</th>
+                                        <th>Tittle</th>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="awareness_program" role="tabpanel" aria-labelledby="awareness_program-tab">
+                        <br>
+                            <table id="awareness_programTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Organiser Name</th>
+                                        <th>Name of the program</th>
+                                        <th>Place Held</th>
+                                        <th>Details of the program</th>
+                                        <th>Speaker</th>
+                                        <th>Photos</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="conference" role="tabpanel" aria-labelledby="conference-tab">
+                        <br>
+                            <table id="conferenceTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Tittle</th>
+                                        <th>Organizer</th>
+                                        <th>Publisher-Name</th>
+                                        <th>Indexing-Details</th>
+                                        <th>Level</th>
+                                        <th>Date</th>
+                                        <th>Title-of-papers</th>
+                                        <th>ISBN</th>
+                                        <th>No-of-Authors</th>
+                                        <th>Authors-position</th>
+                                        <th>Link</th>
+                                        <th>Upload</th>
+
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
+                        </div>
+
+                        <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
+                        <br>
+                            <table id="patentTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>TItle</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Field of Innovation</th>
+                                        <th>Filling Date</th>
+                                        <th>Status</th>
+                                        <th>No.of Authors</th>
+                                        <th>Authors Position</th>
+                                        <th>File</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                </tbody>
+                            </table>
                         </div>
                     </div>
                 </div>
             </div>
-            <div class="row">
-                <div class="col-12">
-                    <div class="card">
-                        <form class="zmdi-format-valign-top">
-                            <div class="card-body">
-                                <div class="card">
-                                    <ul class="nav nav-tabs mb-3" role="tablist">
-                                        <li class="nav-item">
-                                            <a class="nav-link active show" data-toggle="tab" href="#dashboard"
-                                                role="tab" aria-selected="true"><span class="hidden-sm-up"></span>
-                                                <span class="hidden-xs-down"><i
-                                                        class="mdi mdi-view-grid"></i><b>&nbsp Dashboard</b></span></a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#pending"
-                                                role="tab" aria-selected="false"><span class="hidden-sm-up"></span>
-                                                <div id="navref1">
-                                                    <span class="hidden-xs-down">
-                                                        <i class="fas fa-clock"></i>
-                                                         Pending
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#approved" role="tab"
-                                                aria-selected="false"><span class="hidden-sm-up"></span>
-                                                <div id="navref2">
-                                                    <span class="hidden-xs-down">
-                                                        <i class="fas fa-check"></i> Approved 
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#completed" role="tab"
-                                                aria-selected="false"><span class="hidden-sm-up"></span>
-                                                <div id="navref3">
-                                                    <span class="hidden-xs-down">
-                                                        <i class="mdi mdi-check-all"></i> Completed
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                        <li class="nav-item">
-                                            <a class="nav-link" data-toggle="tab" href="#rejected" role="tab"
-                                                aria-selected="false"><span class="hidden-sm-up"></span>
-                                                <div id="navref4">
-                                                    <span class="hidden-xs-down">
-                                                        <i class="mdi mdi-close-circle"></i> Rejected
-                                                    </span>
-                                                </div>
-                                            </a>
-                                        </li>
-                                    </ul>
-                                    <!-------------------------dashboard------------------------------>
-                                    <div class="tab-content tabcontent-border">
-                                        <div class="tab-pane p-20 active show" id="dashboard" role="tabpanel">
-                                            <div class="card">
-                                                <div class="card-body">
-                                                    <!-- <div class="card-header"> -->
-                                                    <h4 class="card-title m-b-0"><b></b></h4><br>
-
-                                                    <br>
-                                                    <div class="row">
-                                                        <!-- Pending -->
-                                                        <div class="col-12 col-md-3" style="margin-bottom: 40px">
-                                                            <div class="cir">
-                                                                <div class="bo">
-                                                                    <div class="content1">
-                                                                        <div class="stats-box text-center p-3" style="background-color:orange;">
-                                                                            <i class="fas fa-clock"></i>
-
-                                                                            <small class="font-light">Pending</small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Faculty infra Pending -->
-                                                        <div class="col-12 col-md-3">
-                                                            <div class="cir">
-                                                                <div class="bo">
-                                                                    <div class="content1">
-                                                                        <div class="stats-box text-center p-3" style="background-color:red;">
-                                                                            <i class="fas fa-exclamation"></i>
-
-                                                                            <small class="font-light">Faculty Incharge Pending</small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Approved -->
-                                                        <div class="col-12 col-md-3">
-                                                            <div class="cir">
-                                                                <div class="bo">
-                                                                    <div class="content1">
-                                                                        <div class="stats-box text-center p-3" style="background-color:rgb(14, 86, 239);">
-                                                                            <i class="fas fa-check"></i>
-
-                                                                            <small class="font-light">Approved</small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-
-                                                        <!-- Completed -->
-                                                        <div class="col-12 col-md-3">
-                                                            <div class="cir">
-                                                                <div class="bo">
-                                                                    <div class="content1">
-                                                                        <div class="stats-box text-center p-3" style="background-color:rgb(70, 160, 70);">
-                                                                            <i class="mdi mdi-check-all"></i>
-
-                                                                            <small class="font-light">Completed</small>
-                                                                        </div>
-                                                                    </div>
-                                                                </div>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <!-------------------------pending tab---------------------------->
-                                        <div class="tab-pane p-20" id="pending" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card">
-                                                        <div class="card-header">
-                                                            <h4>
-                                                                Approve All
-                                                                <button type="button" style="float:right; font-size:20px;"
-                                                                    class="btn btn-success mdi mdi-check-all btnapproveall"></button><br>
-                                                            </h4>
-                                                        </div>
-
-                                                        <div class="card-body">
-                                                            <div class="table-container">
-                                                                <table id="myTable1" class="table table-bordered table-striped fixed-size-table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="pending status text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 40px;">
-                                                                                <b>S.No</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 80px;">
-                                                                                <b>Date Registered</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 70px;">
-                                                                                <b>Faculty Name</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Problem Description</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Image</b>
-                                                                            </th>
-
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Action</b>
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!--------------approved tab-------------------->
-                                        <div class="tab-pane p-20" id="approved" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div class="table-container">
-                                                                <table id="myTable2" class="table table-bordered table-striped fixed-size-table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="pending status text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 40px;">
-                                                                                <b>S.No</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 80px;">
-                                                                                <b>Date Registered</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 70px;">
-                                                                                <b>Faculty Name</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Problem Description</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Image</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Status</b>
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                    </thead>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!-----------completed tab----------->
-                                        <div class="tab-pane p-20" id="completed" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div class="table-container">
-                                                                <table id="myTable3" class="table table-bordered table-striped fixed-size-table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="pending status text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 40px;">
-                                                                                <b>S.No</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 80px;">
-                                                                                <b>Date Registered</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 70px;">
-                                                                                <b>Faculty Name</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Problem Description</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Before Image</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>After Image</b>
-                                                                            </th>
-
-                                                                        </tr>
-                                                                    </thead>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-
-                                        <!----------rejected tab------->
-                                        <div class="tab-pane p-20" id="rejected" role="tabpanel">
-                                            <div class="row">
-                                                <div class="col-md-12">
-                                                    <div class="card">
-                                                        <div class="card-body">
-                                                            <div class="table-container">
-                                                                <table id="myTable4" class="table table-bordered table-striped fixed-size-table">
-                                                                    <thead>
-                                                                        <tr>
-                                                                            <th class="pending status text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 40px;">
-                                                                                <b>S.No</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 80px;">
-                                                                                <b>Date Registered</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white; width: 70px;">
-                                                                                <b>Faculty Name</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Problem Description</b>
-                                                                            </th>
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Image</b>
-                                                                            </th>
-
-                                                                            <th class="text-center"
-                                                                                style="background-color: #7460ee; background: linear-gradient(to bottom right, #cc66ff 1%, #0033cc 100%); color: white;">
-                                                                                <b>Status</b>
-                                                                            </th>
-                                                                        </tr>
-                                                                    </thead>
-                                                                </table>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                    </div>
-                    </form>
-                </div>
-            </div>
         </div>
-    </div>
-    <footer class="footer text-center">
-        <b>
-            2024 © M.Kumarasamy College of Engineering All Rights Reserved.<br>
-            Developed and Maintained by Technology Innovation Hub.
-        </b>
-    </footer>
-    </div>
+        <footer class="footer text-center">
+            2024 © M.Kumarasamy College of Engineering All Rights Reserved.
+        </footer>
     </div>
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
     <!-- Side nav button and logout dropdown -->
@@ -424,6 +297,25 @@
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
+    <!-- DataTables -->
+    <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+
+
+    <script>
+        $(document).ready(function() {
+            // Initialize DataTables for each table
+            $('#journalTable').DataTable();
+            $('#consultancyTable').DataTable();
+            $('#funded_projectsTable').DataTable();
+            $('#awareness_programTable').DataTable();
+            $('#conferenceTable').DataTable();
+            $('#patentTable').DataTable();
+
+
+
+
+        });
+    </script>
 
 </body>
 
