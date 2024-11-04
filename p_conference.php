@@ -1,3 +1,9 @@
+<?php
+include('db.php');
+$query = "SELECT * FROM Conference";
+$result = mysqli_query($conn, $query);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -173,23 +179,24 @@
 
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                            <a class="nav-link rounded-0 active nav-bas" id="Entries-tab" data-toggle="pill" href="#Entries" role="tab" aria-controls="Entries" aria-selected="true">Entries</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                            <a class="nav-link rounded-0" id="Reports-tab" data-toggle="pill" href="#Reports" role="tab" aria-controls="Reports" aria-selected="false">Reports</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                            <a class="nav-link rounded-0" id="Statistics-tab" data-toggle="pill" href="#Statistics" role="tab" aria-controls="Statistics" aria-selected="false">Statistics</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
-                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+                        <div class="tab-pane fade show active" id="Entries" role="tabpanel" aria-labelledby="Entries-tab">
                             <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
+                            <table id="conferenceTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
+                                       
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Title</th>
@@ -197,7 +204,7 @@
                                         <th>Publisher Name</th>
                                         <th>Indexing Details</th>
                                         <th>Level</th>
-                                        <th>Datye</th>
+                                        <th>Date</th>
                                         <th>Title of paper</th>
                                         <th>ISBN</th>
                                         <th>No of Authors</th>
@@ -205,18 +212,75 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <!--loop for featching rows -->
+                                    <?php
+                                  
+                                    while ($row = mysqli_fetch_array($result)) {
+                                    ?>
+                                        <tr>
+                                           
+                                            <th><?php echo $row['faculty_name'] ?></th>
+                                            <th><?php echo $row["faculty_id"] ?></th>
+                                            <th><?php echo $row["title"] ?></th>
+                                            <th><?php echo $row["organiser"] ?></th>
+                                            <th><?php echo $row["publisher_name"] ?></th>
+                                            <th><?php echo $row["indexing_detail"] ?></th>
+                                            <th><?php echo $row["level"] ?></th>
+                                            <th><?php echo $row["date"] ?></th>
+                                            <th><?php echo $row["title_of_paper"] ?></th>
+                                            <th><?php echo $row["isbn"] ?></th>
+                                            <th><?php echo $row["no_of_authors"] ?></th>
+                                            <th><?php echo $row["authors_position"] ?></th>
+                                        </tr>
+                                    <?php
+                                        
+                                    } ?>
                                 </tbody>
 
                             </table>
                             <br>
                         </div>
 
-                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                            <!-- table veganum  -->
+                        <div class="tab-pane fade" id="Reports" role="tabpanel" aria-labelledby="Reports-tab">
+                            <br>
+                            <table id="reportTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Department Name</th>
+                                        <th>Faculty count</th>
+                                        <th>Total Count</th>
+                                        <th>This Month Target</th>
+                                        <th>This Month Count</th>
+                                        <th>Progress</th>
+                                        <th>Deviations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                       
+                                    }
+                                    ?>
+                                </tbody>
+
+                            </table>
+                            <br>
                         </div>
 
-                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                        <div class="tab-pane fade" id="Statistics" role="tabpanel" aria-labelledby="Statistics-tab">
                             <!-- table veganum  -->
                         </div>
                     </div>
@@ -244,8 +308,9 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
+            $('#conferenceTable').DataTable();
+            $('#reportTable').DataTable();
+            $('#StatisticsTable').DataTable();
         });
     </script>
 

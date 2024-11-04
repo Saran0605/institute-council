@@ -1,3 +1,9 @@
+<?php
+include('db.php');
+$query = "SELECT * FROM awarenessprogram";
+$result = mysqli_query(mysql: $conn, query: $query);
+?>
+
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -111,14 +117,8 @@
                                 <li class="sidebar-item"><a href="p_awareness.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Awareness Program</span></a></li>
                                 <li class="sidebar-item"><a href="p_conference.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Conferences</span></a></li>
                                 <li class="sidebar-item"><a href="p_patterns.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Patterns</span></a></li>
-
-
-
-
                             </ul>
                         </li>
-
-
                     </ul>
                 </nav>
             </div>
@@ -144,21 +144,21 @@
 
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                            <a class="nav-link rounded-0 active nav-bas" id="Entries-tab" data-toggle="pill" href="#Entries" role="tab" aria-controls="Entries" aria-selected="true">Entries</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                            <a class="nav-link rounded-0" id="Report-tab" data-toggle="pill" href="#Report" role="tab" aria-controls="Report" aria-selected="false">Report</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                            <a class="nav-link rounded-0" id="Statistics-tab" data-toggle="pill" href="#Statistics" role="tab" aria-controls="Statistics" aria-selected="false">Statistics</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
-                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+                        <div class="tab-pane fade show active" id="Entries" role="tabpanel" aria-labelledby="Entries-tab">
                             <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
+                            <table id="EntriesTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
@@ -172,28 +172,77 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                            <td><?php echo $row['faculty_name']; ?></td>
+                                            <td><?php echo $row['faculty_id']; ?></td>
+                                            <td><?php echo $row['organiserName']; ?></td>
+                                            <td><?php echo $row['programName']; ?></td>
+                                            <td><?php echo $row['placeHeld']; ?></td>
+                                            <td><?php echo $row['programDetails']; ?></td>
+                                            <td><?php echo $row['speaker']; ?></td>
+                                            <td><?php echo $row['speaker']; ?></td>
+                                        </tr>
+                                    <?php
+                                    }
+                                    ?>
                                 </tbody>
 
                             </table>
                             <br>
                         </div>
 
-                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                            <!-- table veganum  -->
+                        <div class="tab-pane fade" id="Report" role="tabpanel" aria-labelledby="Report-tab">
+                            <br>
+                            <table id="ReportTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Department Name</th>
+                                        <th>Faculty count</th>
+                                        <th>Total Count</th>
+                                        <th>This Month Target</th>
+                                        <th>This Month Count</th>
+                                        <th>Progress</th>
+                                        <th>Deviations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    ?>
+                                </tbody>
+
+                            </table>
+                            <br>
                         </div>
 
-                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                        <div class="tab-pane fade" id="Statistics" role="tabpanel" aria-labelledby="Statistics-tab">
                             <!-- table veganum  -->
                         </div>
                     </div>
                 </div>
-
             </div>
-            <footer class="footer text-center">
-                2024 © M.Kumarasamy College of Engineering All Rights Reserved.
-            </footer>
         </div>
+        <footer class="footer text-center">
+            2024 © M.Kumarasamy College of Engineering All Rights Reserved.
+        </footer>
+    </div>
     </div>
     <!-- Scripts -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
@@ -209,8 +258,8 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
+            $('#EntriesTable').DataTable();
+            $('#ReportTable').DataTable();
         });
     </script>
 </body>

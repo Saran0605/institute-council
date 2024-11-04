@@ -1,3 +1,8 @@
+<?php
+include "db.php";
+$sql="SELECT * FROM fundedprojects";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -156,30 +161,49 @@
                 </div>
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
-                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
-                            <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white;width:50px;">
-                                    <tr>
-                                        <th>Faculty Name</th>
-                                        <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Type</th>
-                                        <th>Project ID</th>
-                                        <th>Funding Agency</th>
-                                        <th>Link</th>
-                                        <th>Requested Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-
-                                </tbody>
-
-                            </table>
-                            <br>
-                        </div>
+                    <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+    <br>
+    <div style="overflow-x: auto;">
+        <table id="journalTable" class="table table-striped table-bordered">
+            <thead style="background-color:black;color:white;width:50px;">
+                <tr>
+                    <th>Faculty Name</th>
+                    <th>Faculty ID</th>
+                    <th>Title</th>
+                    <th>Type</th>
+                    <th>Project ID</th>
+                    <th>Funding Agency</th>
+                    <th>Link</th>
+                    <th>Requested Amount</th>
+                    <th>Status</th>
+                    <th>Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <?php
+                    if ($result->num_rows > 0) {
+                        while ($row = $result->fetch_assoc()) { ?>
+                <tr>
+                    <td><?php echo $row['faculty_name']; ?></td>
+                    <td><?php echo $row['faculty_id']; ?></td>
+                    <td><?php echo $row['title']; ?></td>
+                    <td><?php echo $row['type']; ?></td>
+                    <td><?php echo $row['projectid']; ?></td>
+                    <td><?php echo $row['fundingagency']; ?></td>
+                    <td><?php echo $row['link']; ?></td>
+                    <td><?php echo $row['requestedamount']; ?></td>
+                    <td><?php echo $row['status']; ?></td>
+                    <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
+                    </td>
+                </tr>
+                <?php }
+                    } ?>
+            </tbody>
+        </table>
+    </div>
+    <br>
+</div>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
                             <!-- table veganum  -->
