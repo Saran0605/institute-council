@@ -233,7 +233,7 @@ include("db.php");
                             <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancytab" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#funded_projects" role="tab" aria-controls="consultancy" aria-selected="false">Funded Projects</a>
@@ -242,7 +242,7 @@ include("db.php");
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#awareness_program" role="tab" aria-controls="consultancy" aria-selected="false">Awareness Programs</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#conference" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#conferencetab" role="tab" aria-controls="consultancy" aria-selected="false">Conferences</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#patent" role="tab" aria-controls="consultancy" aria-selected="false">Patents</a>
@@ -257,14 +257,66 @@ include("db.php");
                                     <div class="card">
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
-                                                <h4 class="header-title">Current Month Target</h4><button class="btn btn-dark">Set Month's Target</button>
+                                                <h4 class="header-title">Current Month Target</h4><button class="btn btn-dark" data-toggle="modal" data-target="#targetModal">Set Month's Target</button>
                                             </div><br>
                                             <li class="list-group-item d-flex justify-content-between align-items-center"><span class="text-danger">Target not set for the current month</span></li>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!------Modal for targets---->
+                        <div class="modal fade" id="targetModal" tabindex="-1" role="dialog" aria-labelledby="targetModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="targetModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form>
+                                        <div id="addNewJournal">
+                                            <div class="modal-body">
+                                                <div class="form">
+                                                    <div class="form-group">
+                                                        <label>Awareness Programs</label>
+                                                        <input type="number" value="0" id="awarenessprogram" name="awarenessprogram" fdprocessedid="6iga4g">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Conference</label>
+                                                        <input type="number" value="0" id="conference" name="conference" fdprocessedid="zgm22i">
+                                                    </div>
 
+
+                                                    <div class="form-group">
+                                                        <label>Consultancy</label>
+                                                        <input type="number" value="0" id="consultancy" name="consultancy" fdprocessedid="zgm22i">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Funded Projects</label>
+                                                        <input type="number" value="0" id="fundedprojects" name="fundedprojects" fdprocessedid="zgm22i">
+                                                    </div>
+
+                                                    <div class="form-group">
+                                                        <label>Journals</label>
+                                                        <input type="number" value="0" id="journals" name="journals" fdprocessedid="zgm22i">
+                                                    </div>
+                                                    <div class="form-group">
+                                                        <label>Patents</label>
+                                                        <input type="number" value="0" id="patents" name="patents" fdprocessedid="zgm22i">
+                                                    </div>
+                                                    <button type="submit" class="btn btn-primary">Set Target</button><br>
+                                                
+                                                <div class="modal-footer"style="background-color:white">
+                                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                                </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
@@ -380,7 +432,7 @@ include("db.php");
                         </div>
 
 
-                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                        <div class="tab-pane fade" id="consultancytab" role="tabpanel" aria-labelledby="consultancy-tab">
                             <br>
                             <table id="consultancyTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
@@ -450,7 +502,7 @@ include("db.php");
                             </table>
                         </div>
 
-                        <div class="tab-pane fade" id="conference" role="tabpanel" aria-labelledby="conference-tab">
+                        <div class="tab-pane fade" id="conferencetab" role="tabpanel" aria-labelledby="conference-tab">
                             <br>
                             <div class="table-responsive">
                                 <table id="conferenceTable" class="table table-striped table-bordered">
@@ -544,33 +596,33 @@ include("db.php");
             $('#patentTable').DataTable();
         });
 
-        $(document).on('submit',"#addNewJournal",function(e){
+        $(document).on('submit', "#addNewJournal", function(e) {
             e.preventDefault();
             var data = new FormData(this);
-            data.append("add_Journal",true);
+            data.append("add_Journal", true);
 
             $.ajax({
-                    type: "POST",
-                    url: "backend.php",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        var res = jQuery.parseJSON(response);
+                type: "POST",
+                url: "backend.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
 
-                        if (res.status == 200) {
+                    if (res.status == 200) {
 
-                            alert("Sucessfully!!");
-                            $("#principalModal").modal("hide");
-                            $("#principal_Form")[0].reset();
-                        } else if (res.status == 500) {
-                            alert("Something went wrong. Please try again.");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert("An error occurred while processing your request.");
-                    },
-                });
+                        alert("Sucessfully!!");
+                        $("#principalModal").modal("hide");
+                        $("#principal_Form")[0].reset();
+                    } else if (res.status == 500) {
+                        alert("Something went wrong. Please try again.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred while processing your request.");
+                },
+            });
 
 
         })
