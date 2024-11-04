@@ -1,3 +1,10 @@
+<?php
+include('db.php');
+$query = "SELECT * FROM patents";
+
+$result = mysqli_query($conn, $query);
+
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -144,13 +151,13 @@
 
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="Entries" aria-selected="true">Entries</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="Reports" aria-selected="false">Reports</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="Statistics" aria-selected="false">Statistics</a>
                         </li>
                     </ul>
                 </div>
@@ -158,7 +165,7 @@
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                             <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
+                            <table id="patternTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
@@ -172,7 +179,24 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php
+                                     // fetch data from database
+                                     while($row = mysqli_fetch_assoc($result)){
+                                        ?>
+                                        <tr>
+                                       <td><?php echo $row['faculty_name']?></td> 
+                                       <td><?php echo $row['faculty_id']?></td> 
+                                       <td><?php echo $row['title']?></td> 
+                                       <td><?php echo $row['field_of_innovation']?></td> 
+                                       <td><?php echo $row['date']?></td> 
+                                       <td><?php echo $row['status']?></td> 
+                                       <td><?php echo $row['no_of_authors']?></td> 
+                                       <td><?php echo $row['authors_position']?></td> 
+                                       </tr>
+                                
+                                <?php
+                                     }
+                                ?>
                                 </tbody>
 
                             </table>
@@ -180,7 +204,42 @@
                         </div>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                            <!-- table veganum  -->
+                        <br>
+                            <table id="patternReport" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Department Name</th>
+                                        <th>Faculty count</th>
+                                        <th>Total Count</th>
+                                        <th>This Month Target</th>
+                                        <th>This Month Count</th>
+                                        <th>Progress</th>
+                                        <th>Deviations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                        $s = 1; 
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    <td></td>
+                                    </tr>
+                                    <?php
+                                        $s++;
+                                        }
+                                    ?>
+                                </tbody>
+
+                            </table>
+                            <br>
                         </div>
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
@@ -209,9 +268,11 @@
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
+            $('#patternTable').DataTable();
+            $('#patternReport').DataTable();
+
         });
+        
     </script>
 </body>
 
