@@ -19,27 +19,27 @@
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-<style>
-    .basic-nav {
+    <style>
+        .basic-nav {
 
-    text-decoration: none;
-    color: black;
-    margin: 0;
-    padding: 10px 240px;
-    border: 2px solid while;
-    text-align: center;
-    background-color: white;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            padding: 10px 240px;
+            border: 2px solid while;
+            text-align: center;
+            background-color: white;
 
 
-}
+        }
 
-.basic-bar a:hover {
-    background-color: blue;
-    color: white;
+        .basic-bar a:hover {
+            background-color: blue;
+            color: white;
 
-}
-</style>
-   
+        }
+    </style>
+
 </head>
 
 <body>
@@ -58,7 +58,7 @@
                             class="ti-menu ti-close"></i></a>
                     <a class="navbar-brand" href="index.html">
                         <!-- Logo icon -->
-                        <b class="logo-icon p-l-10">
+                        <b class="logo-icon p-l-10" style="padding-left: 5px;">
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
 
                         </b>
@@ -160,7 +160,7 @@
                     <nav class="navbar navbar-light bg-light basic-bar">
                         <a href="#" class="basic-nav">Department Report</a>
                         <a href="#" class="basic-nav">Faculty Wise Report</a>
-                        
+
                     </nav>
 
                 </div>
@@ -232,7 +232,7 @@
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#report1').DataTable();
         });
     </script>

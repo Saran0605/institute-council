@@ -61,7 +61,7 @@
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
                     <a class="navbar-brand" href="index.html">
-                        <b class="logo-icon p-l-10">
+                        <b class="logo-icon p-l-10" style="padding-left: 5px;">
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
                         </b>
                         <span class="logo-text">
