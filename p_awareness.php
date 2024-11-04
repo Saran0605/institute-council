@@ -162,8 +162,8 @@
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
-                                        <th> Faculty ID</th>
-                                        <th> Organizer Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Organizer Name</th>
                                         <th>Program Name</th>
                                         <th>Place Held</th>
                                         <th>Program Details</th>
