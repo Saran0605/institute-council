@@ -34,15 +34,15 @@
 
         }
 
-        .basic-bar a:hover {
+
+        .nav a:hover {
             background-color: blue;
             color: white;
-
         }
 
-        .basic-nav a:hover {
-            background-color: blue;
-            color: white;
+        .haii{
+            text-decoration: none;
+            color: black;
         }
     </style>
 
@@ -164,9 +164,9 @@
                 <br>
                 <div class="card">
 
-                    <ul class="nav nav-tabs" id="tableNav" role="tablist">
-                        <li class="nav-item" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
-                        <li class="nav-item" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false">Faculty Wise Report</a></li>
+                    <ul class="nav nav-tabs " id="tableNav" role="tablist">
+                        <li class="nav-item haii" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
+                        <li class="nav-item  haii" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false" >Faculty Wise Report</a></li>
                     </ul>
 
 
@@ -174,8 +174,10 @@
 
 
                 <div class="tab-content">
-                    <div class="tab-pane fade show active" id="rag1" role="tabpanel" aria-labelledby="rag1-tab">
-                        <h3> Faculty Report</h3>
+                    <div class="tab-pane fade show active card" id="rag1" role="tabpanel" aria-labelledby="rag1-tab">
+                        &nbsp;
+                        <h4 style="margin-left: 10px; color:black;"> Faculty Report</h4>
+                        <br>
                         <table id="report1" class="table table-striped table-bordered">
                             <thead style="background-color:black;color:white">
                                 <tr>
@@ -191,11 +193,14 @@
                             </thead>
 
                         </table>
+                        <br>
                     </div>
 
 
-                    <div class="tab-pane fade" id="rag2" role="tabpanel" aria-labelledby="rag2-tab">
-                        <h3>Faculty Wise Report</h3>
+                    <div class="tab-pane fade card" id="rag2" role="tabpanel" aria-labelledby="rag2-tab">
+                        &nbsp;
+                        <h4 style="margin-left: 10px; color:black;">Faculty Wise Report</h4>
+                        <br>
                         <table id="report2" class="table table-striped table-bordered">
                             <thead style="background-color:black;color:white">
                                 <tr>
@@ -215,6 +220,7 @@
                             </thead>
 
                         </table>
+                        <br>
                     </div>
 
                 </div>
