@@ -165,7 +165,11 @@ $result = $conn->query($sql);
                         <div class="tab-pane fade show active" id="Entries" role="tabpanel" aria-labelledby="Entries-tab">
                             <br>
                             <div style="overflow-x: auto;">
+<<<<<<< HEAD
+                            <table id="journalTable" class="table table-striped table-bordered table-responsive">
+=======
                             <table id="ReportsTable" class="table table-striped table-bordered">
+>>>>>>> 05b22b6e62120fa98936183c434fa2ddbd50a90e
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
