@@ -2,7 +2,7 @@
 include("db.php");
 
 //Accept reason
-if (isset($_POST['accept_complaint'])) {
+if (isset($_POST['add_Journal'])) {
     $fname = $_POST['fName'];
     $fid = $_POST['fId'];
     $type = $_POST['jType'];
