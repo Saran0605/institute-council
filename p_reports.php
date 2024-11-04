@@ -39,10 +39,11 @@
             color: white;
 
         }
+
         .basic-nav a:hover {
-    background-color: blue;
-    color: white;
-}
+            background-color: blue;
+            color: white;
+        }
     </style>
 
 </head>
@@ -174,60 +175,47 @@
 
                 <div class="tab-content">
                     <div class="tab-pane fade show active" id="rag1" role="tabpanel" aria-labelledby="rag1-tab">
+                        <h3> Faculty Report</h3>
                         <table id="report1" class="table table-striped table-bordered">
                             <thead style="background-color:black;color:white">
                                 <tr>
+                                    <th>S.No</th>
                                     <th>Name</th>
-                                    <th>Position</th>
-                                    <th>Office</th>
-                                    <th>Age</th>
-                                    <th>Start date</th>
-                                    <th>Salary</th>
+                                    <th>Awareness Program</th>
+                                    <th>Conference</th>
+                                    <th>Consultancy</th>
+                                    <th>Funded Projects</th>
+                                    <th>Journals</th>
+                                    <th>Patents</th>
                                 </tr>
                             </thead>
-
-                            <tbody>
-                                <tr>
-                                    <td>Tiger Nixon</td>
-                                    <td>System Architect</td>
-                                    <td>Edinburgh</td>
-                                    <td>61</td>
-                                    <td>2011/04/25</td>
-                                    <td>$320,800</td>
-                                </tr>
-
-                            </tbody>
 
                         </table>
                     </div>
 
-                    
-                            <div class="tab-pane fade" id="rag2" role="tabpanel" aria-labelledby="rag2-tab">
-                                <table id="report2" class="table table-striped table-bordered">
-                                    <thead style="background-color:black;color:white">
-                                        <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
-                                            <th>Age</th>
-                                            <th>Start date</th>
-                                            <th>Salary</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Tiger Nixon</td>
-                                            <td>System Architect</td>
-                                            <td>Edinburgh</td>
-                                            <td>61</td>
-                                            <td>2011/04/25</td>
-                                            <td>$520,800</td>
-                                        </tr>
 
-                                    </tbody>
+                    <div class="tab-pane fade" id="rag2" role="tabpanel" aria-labelledby="rag2-tab">
+                        <h3>Faculty Wise Report</h3>
+                        <table id="report2" class="table table-striped table-bordered">
+                            <thead style="background-color:black;color:white">
+                                <tr>
+                                    <th>S.No</th>
+                                    <th>ID</th>
+                                    <th>Name</th>
+                                    <th>Awareness Program</th>
+                                    <th>Conference</th>
+                                    <th>Consultancy</th>
+                                    <th>Funded Projects</th>
+                                    <th>Journals</th>
+                                    <th>Patents</th>
 
-                                </table>
-                            </div>                      
+
+
+                                </tr>
+                            </thead>
+
+                        </table>
+                    </div>
 
                 </div>
 

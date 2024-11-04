@@ -148,8 +148,8 @@
                                     <tr>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
                                         <th>Type</th>
+                                        <th>Tittle</th>
                                         <th>Project ID</th>
                                         <th>Funding Agency</th>
                                         <th>Link</th>
