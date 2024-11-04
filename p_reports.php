@@ -2,7 +2,43 @@
 <html dir="ltr" lang="en">
 
 <head>
+<style>
+        .bg-nav-pills {
+            background-color: #f8f9fa;
+        }
 
+        .nav-pills .nav-link {
+            color: #000;
+            font-weight: 500;
+            padding: 12px 2x;
+        }
+
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-justified .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* table class name */
+        .my-3 {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .table {
+            margin-top: 10px;
+        }
+    </style>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -162,17 +198,14 @@
             </div>
             <div class="container-fluid">
                 <br>
-                <div class="card">
-
-                    <ul class="nav nav-tabs " id="tableNav" role="tablist">
-                        <li class="nav-item haii" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
-                        <li class="nav-item  haii" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false" >Faculty Wise Report</a></li>
+                    <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0 active nav-bas" id="rag1-tab" data-toggle="pill" href="#rag1" role="tab" aria-controls="Entries" aria-selected="true">Department Report</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="rag2-tab" data-toggle="pill" href="#rag2" role="tab" aria-controls="Report" aria-selected="false">Faculty Wise Report</a>
+                        </li>
                     </ul>
-
-
-                </div>
-
-
                 <div class="tab-content">
                     <div class="tab-pane fade show active card" id="rag1" role="tabpanel" aria-labelledby="rag1-tab">
                         &nbsp;

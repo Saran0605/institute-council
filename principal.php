@@ -2,6 +2,42 @@
 <html dir="ltr" lang="en">
 
 <head>
+    <?php
+    include('db.php');
+    //Hindex count
+    $query1 = "SELECT * FROM hindex";
+    $result1 = mysqli_query($conn, $query1);
+    $row_count1 = mysqli_num_rows($result1);
+    //Citation  count
+    $query2 = "SELECT * FROM citation";
+    $result2 = mysqli_query($conn, $query2);
+    $row_count2 = mysqli_num_rows($result2);
+    //Awarenessprogram count
+    $query3 = "SELECT * FROM awarenessprogram";
+    $result3 = mysqli_query($conn, $query3);
+    $row_count3 = mysqli_num_rows($result3);
+    //Conferences count
+    $query4 = "SELECT * FROM conference";
+    $result4 = mysqli_query($conn, $query4);
+    $row_count4 = mysqli_num_rows($result4);
+    //Consultancy count
+    $query5 = "SELECT * FROM consultancy";
+    $result5 = mysqli_query($conn, $query5);
+    $row_count5 = mysqli_num_rows($result5);
+    //Fundedprojects count
+    $query6 = "SELECT * FROM fundedprojects";
+    $result6 = mysqli_query($conn, $query6);
+    $row_count6 = mysqli_num_rows($result6);
+    //Journal count
+    $query7 = "SELECT * FROM journal";
+    $result7 = mysqli_query($conn, $query7);
+    $row_count7 = mysqli_num_rows($result7);
+    //Patents count
+    $query8 = "SELECT * FROM patents";
+    $result8 = mysqli_query($conn, $query8);
+    $row_count8 = mysqli_num_rows($result8);
+    ?>
+
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <!-- Tell the browser to be responsive to screen width -->
@@ -19,17 +55,15 @@
     <style>
         /* css for card boady boder */
         .cardbox {
-
             border-radius: 20px;
-
         }
-        .isize{
+
+        .isize {
             width: 35px;
             height: 35px;
             margin-bottom: 10;
         }
     </style>
-
 </head>
 
 <body>
@@ -86,14 +120,8 @@
                                 <li class="sidebar-item"><a href="p_awareness.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Awareness Program</span></a></li>
                                 <li class="sidebar-item"><a href="p_conference.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Conferences</span></a></li>
                                 <li class="sidebar-item"><a href="p_patterns.php" class="sidebar-link"><i class="mdi mdi-note-plus"></i><span class="hide-menu">Patterns</span></a></li>
-
-
-
-
                             </ul>
                         </li>
-
-
                     </ul>
                 </nav>
             </div>
@@ -123,7 +151,7 @@
                             <div class="box bg-light text-center">
                                 <img src="assets/images/hindex.png" class="isize">
                                 <h6 class="text-black">HIndex</h6>
-                                <h3>1003</h3>
+                                <h3><?php echo $row_count1; ?></h3>
                             </div>
                         </div>
                     </div>
@@ -131,9 +159,9 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <img src="assets/images/Citations.png"alt="citations" class="isize">
+                                <img src="assets/images/Citations.png" alt="citations" class="isize">
                                 <h6 class="text-black">Citations</h6>
-                                <h3>10</h3>
+                                <h3><?php echo $row_count2; ?></h3>
 
                             </div>
                         </div>
@@ -142,9 +170,9 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                                <img src="assets/images/Awareness Programs.png"alt="Awareness Programs" class="isize">
+                                <img src="assets/images/Awareness Programs.png" alt="Awareness Programs" class="isize">
                                 <h6 class="text-black">Awareness Programs</h6>
-                                <h3>103</h3>
+                                <h3><?php echo $row_count3; ?></h3>
 
                             </div>
                         </div>
@@ -155,7 +183,7 @@
                             <div class="box bg-light text-center">
                                 <img src="assets/images/conference.png" alt="Conference" class="isize">
                                 <h6 class="text-black">Conference</h6>
-                                <h3>03</h3>
+                                <h3><?php echo $row_count4; ?></h3>
 
                             </div>
                         </div>
@@ -168,7 +196,7 @@
                             <div class="box bg-light text-center">
                                 <img src="assets/images/Consultancy.png" alt="Consultancy" class="isize">
                                 <h6 class="text-black">Consultancy</h6>
-                                <h3>10</h3>
+                                <h3><?php echo $row_count5; ?></h3>
 
                             </div>
                         </div>
@@ -179,7 +207,7 @@
                             <div class="box bg-light text-center">
                                 <img src="assets/images/Funded Projects.png" alt="Funded Projects" class="isize">
                                 <h6 class="text-black">Funded Projects</h6>
-                                <h3>100i3</h3>
+                                <h3><?php echo $row_count6; ?></h3>
 
                             </div>
                         </div>
@@ -188,9 +216,9 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover  cardbox">
                             <div class="box bg-light text-center">
-                               <img src="assets/images/Journal.png" alt="Journal" class="isize">
+                                <img src="assets/images/Journal.png" alt="Journal" class="isize">
                                 <h6 class="text-black">Journal</h6>
-                                <h3>100883</h3>
+                                <h3><?php echo $row_count7; ?></h3>
 
                             </div>
                         </div>
@@ -199,9 +227,9 @@
                     <div class="col-md-6 col-lg-3">
                         <div class="card card-hover cardbox">
                             <div class="box bg-light text-center">
-                               <img src="assets/images/Patents.png" alt="Patents" class="isize">
+                                <img src="assets/images/Patents.png" alt="Patents" class="isize">
                                 <h6 class="text-black">Patents</h6>
-                                <h3>1003</h3>
+                                <h3><?php echo $row_count8; ?></h3>
 
                             </div>
                         </div>
@@ -270,10 +298,6 @@
                         </div>
                     </div>
                 </div>
-
-
-
-
             </div>
             <footer class="footer text-center">
                 2024 © M.Kumarasamy College of Engineering All Rights Reserved.
