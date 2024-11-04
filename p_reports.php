@@ -19,27 +19,31 @@
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
-<style>
-    .basic-nav {
+    <style>
+        .basic-nav {
 
-    text-decoration: none;
-    color: black;
-    margin: 0;
-    padding: 10px 240px;
-    border: 2px solid while;
-    text-align: center;
-    background-color: white;
+            text-decoration: none;
+            color: black;
+            margin: 0;
+            padding: 10px 240px;
+            border: 2px solid while;
+            text-align: center;
+            background-color: white;
 
 
-}
+        }
 
-.basic-bar a:hover {
+        .basic-bar a:hover {
+            background-color: blue;
+            color: white;
+
+        }
+        .basic-nav a:hover {
     background-color: blue;
     color: white;
-
 }
-</style>
-   
+    </style>
+
 </head>
 
 <body>
@@ -157,44 +161,73 @@
             <div class="container-fluid">
                 <br>
                 <div class="card">
-                    <nav class="navbar navbar-light bg-light basic-bar">
-                        <a href="#" class="basic-nav">Department Report</a>
-                        <a href="#" class="basic-nav">Faculty Wise Report</a>
-                        
-                    </nav>
+
+                    <ul class="nav nav-tabs" id="tableNav" role="tablist">
+                        <li class="nav-item" role="presentation"><a class="nav-link  active" id="rag1-tab" data-toggle="tab" href="#rag1" role="tab" aria-controls="rag1" aria-selected="true">Department Report</a></li>
+                        <li class="nav-item" role="presentation"><a class="nav-link" id="rag2-tab" data-toggle="tab" href="#rag2" role="tab" aria-controls="rag2" aria-selected="false">Faculty Wise Report</a></li>
+                    </ul>
+
 
                 </div>
 
-                <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="report1" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white">
-                                    <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <tr>
-                                        <td>Tiger Nixon</td>
-                                        <td>System Architect</td>
-                                        <td>Edinburgh</td>
-                                        <td>61</td>
-                                        <td>2011/04/25</td>
-                                        <td>$320,800</td>
-                                    </tr>
 
-                                </tbody>
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="rag1" role="tabpanel" aria-labelledby="rag1-tab">
+                        <table id="report1" class="table table-striped table-bordered">
+                            <thead style="background-color:black;color:white">
+                                <tr>
+                                    <th>Name</th>
+                                    <th>Position</th>
+                                    <th>Office</th>
+                                    <th>Age</th>
+                                    <th>Start date</th>
+                                    <th>Salary</th>
+                                </tr>
+                            </thead>
 
-                            </table>
-                        </div>
+                            <tbody>
+                                <tr>
+                                    <td>Tiger Nixon</td>
+                                    <td>System Architect</td>
+                                    <td>Edinburgh</td>
+                                    <td>61</td>
+                                    <td>2011/04/25</td>
+                                    <td>$320,800</td>
+                                </tr>
 
+                            </tbody>
+
+                        </table>
                     </div>
+
+                    
+                            <div class="tab-pane fade" id="rag2" role="tabpanel" aria-labelledby="rag2-tab">
+                                <table id="report2" class="table table-striped table-bordered">
+                                    <thead style="background-color:black;color:white">
+                                        <tr>
+                                            <th>Name</th>
+                                            <th>Position</th>
+                                            <th>Office</th>
+                                            <th>Age</th>
+                                            <th>Start date</th>
+                                            <th>Salary</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <tr>
+                                            <td>Tiger Nixon</td>
+                                            <td>System Architect</td>
+                                            <td>Edinburgh</td>
+                                            <td>61</td>
+                                            <td>2011/04/25</td>
+                                            <td>$520,800</td>
+                                        </tr>
+
+                                    </tbody>
+
+                                </table>
+                            </div>                      
+
                 </div>
 
 
@@ -232,8 +265,9 @@
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
     <script>
-        $(document).ready(function () {
+        $(document).ready(function() {
             $('#report1').DataTable();
+            $('#report2').DataTable();
         });
     </script>
 
