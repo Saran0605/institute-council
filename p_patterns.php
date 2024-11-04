@@ -249,6 +249,7 @@ $result = mysqli_query($conn, $query);
                 </div>
 
             </div>
+            </div>
             <footer class="footer text-center">
                 2024 © M.Kumarasamy College of Engineering All Rights Reserved.
             </footer>

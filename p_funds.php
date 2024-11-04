@@ -1,6 +1,6 @@
 <?php
 include "db.php";
-$sql="SELECT * FROM fundedprojects";
+$sql = "SELECT * FROM fundedprojects";
 $result = $conn->query($sql);
 ?>
 <!DOCTYPE html>
@@ -56,6 +56,7 @@ $result = $conn->query($sql);
         .table {
             margin-top: 10px;
         }
+
     </style>
 </head>
 
@@ -149,64 +150,100 @@ $result = $conn->query($sql);
 
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                            <a class="nav-link rounded-0 active nav-bas" id="Entries-tab" data-toggle="pill" href="#Entries" role="tab" aria-controls="Entries" aria-selected="true">Entries</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                            <a class="nav-link rounded-0" id="Reports-tab" data-toggle="pill" href="#Reports" role="tab" aria-controls="Reports" aria-selected="false">Reports</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Statistics</a>
                         </li>
                     </ul>
                 </div>
                 <div class="card">
                     <div class="tab-content" id="researchTabContent">
-                    <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
-    <br>
-    <div style="overflow-x: auto;">
-        <table id="journalTable" class="table table-striped table-bordered">
-            <thead style="background-color:black;color:white;width:50px;">
-                <tr>
-                    <th>Faculty Name</th>
-                    <th>Faculty ID</th>
-                    <th>Title</th>
-                    <th>Type</th>
-                    <th>Project ID</th>
-                    <th>Funding Agency</th>
-                    <th>Link</th>
-                    <th>Requested Amount</th>
-                    <th>Status</th>
-                    <th>Actions</th>
-                </tr>
-            </thead>
-            <tbody>
-                <?php
-                    if ($result->num_rows > 0) {
-                        while ($row = $result->fetch_assoc()) { ?>
-                <tr>
-                    <td><?php echo $row['faculty_name']; ?></td>
-                    <td><?php echo $row['faculty_id']; ?></td>
-                    <td><?php echo $row['title']; ?></td>
-                    <td><?php echo $row['type']; ?></td>
-                    <td><?php echo $row['projectid']; ?></td>
-                    <td><?php echo $row['fundingagency']; ?></td>
-                    <td><?php echo $row['link']; ?></td>
-                    <td><?php echo $row['requestedamount']; ?></td>
-                    <td><?php echo $row['status']; ?></td>
-                    <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;
-                        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
-                    </td>
-                </tr>
-                <?php }
-                    } ?>
-            </tbody>
-        </table>
-    </div>
-    <br>
-</div>
+                        <div class="tab-pane fade show active" id="Entries" role="tabpanel" aria-labelledby="Entries-tab">
+                            <br>
+                            <div style="overflow-x: auto;">
+                                <table id="EntriesTable" class="table table-striped table-bordered">
+                                    <thead style="background-color:black;color:white;width:50px;">
+                                        <tr>
+                                            <th>Faculty Name</th>
+                                            <th>Faculty ID</th>
+                                            <th>Title</th>
+                                            <th>Type</th>
+                                            <th>Project ID</th>
+                                            <th>Funding Agency</th>
+                                            <th>Link</th>
+                                            <th>Requested Amount</th>
+                                            <th>Status</th>
+                                            <th>Actions</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        if ($result->num_rows > 0) {
+                                            while ($row = $result->fetch_assoc()) { ?>
+                                                <tr>
+                                                    <td><?php echo $row['faculty_name']; ?></td>
+                                                    <td><?php echo $row['faculty_id']; ?></td>
+                                                    <td><?php echo $row['title']; ?></td>
+                                                    <td><?php echo $row['type']; ?></td>
+                                                    <td><?php echo $row['projectid']; ?></td>
+                                                    <td><?php echo $row['fundingagency']; ?></td>
+                                                    <td><?php echo $row['link']; ?></td>
+                                                    <td><?php echo $row['requestedamount']; ?></td>
+                                                    <td><?php echo $row['status']; ?></td>
+                                                    <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp;
+                                                        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
+                                                    </td>
+                                                </tr>
+                                        <?php }
+                                        } ?>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <br>
+                        </div>
 
-                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
-                            <!-- table veganum  -->
+                        <div class="tab-pane fade" id="Reports" role="tabpanel" aria-labelledby="Reports-tab">
+                        <br>
+                            <table id="ReportsTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Department Name</th>
+                                        <th>Faculty count</th>
+                                        <th>Total Count</th>
+                                        <th>This Month Target</th>
+                                        <th>This Month Count</th>
+                                        <th>Progress</th>
+                                        <th>Deviations</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    ?><tr>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                            <td></td>
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    ?>
+                                </tbody>
+
+                            </table>
+                            <br>
+                        
                         </div>
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
@@ -234,8 +271,8 @@ $result = $conn->query($sql);
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
+            $('#ReportsTable').DataTable();
+            $('#EntriesTable').DataTable();
         });
     </script>
 
