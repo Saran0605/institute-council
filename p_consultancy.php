@@ -1,3 +1,8 @@
+<?php
+include "db.php";
+$sql="SELECT * FROM consultancy";
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -159,6 +164,7 @@
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                             <br>
+                            <div style="overflow-x: auto;">
                             <table id="journalTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -173,10 +179,26 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                <?php
+                    if($result->num_rows>0){
+                        while($row = $result->fetch_assoc()){ ?>
+                    <tr>
+                        <td><?php echo $row['faculty_name'];  ?></td>
+                        <td><?php echo $row['faculty_id'];  ?></td>
+                        <td><?php echo $row['title'];  ?></td>
+                        <td><?php echo $row['type'];  ?></td>
+                        <td><?php echo $row['moe'];  ?></td>
+                        <td><?php echo $row['earnings'];  ?></td>
+                        <td><?php echo $row['uploadfile'];  ?></td>
+                        <td><a class="btn btn-info" href="update.php?id=<?php echo $row['id']; ?>">Edit</a>&nbsp; 
+                        <a class="btn btn-danger" href="delete.php?id=<?php echo $row['id'] ?>">Delete</a>
+                    </td>
+                    </tr>
+                    <?php }
+                } ?>  
                                 </tbody>
-
                             </table>
+                            </div>
                             <br>
                         </div>
 
