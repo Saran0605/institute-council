@@ -4,22 +4,53 @@
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <!-- Tell the browser to be responsive to screen width -->
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="description" content="">
     <meta name="author" content="">
-    <!-- Favicon icon -->
     <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon.png">
     <title>Institute Council</title>
-    <!-- Custom CSS -->
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
-    <!-- Custom CSS -->
     <link href="dist/css/style.min.css" rel="stylesheet">
     <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
+    <style>
+        .bg-nav-pills {
+            background-color: #f8f9fa;
+        }
 
+        .nav-pills .nav-link {
+            color: #000;
+            font-weight: 500;
+            padding: 12px 2x;
+        }
 
+        .nav-pills .nav-link.active {
+            background-color: #007bff;
+            color: #fff;
+        }
+
+        .nav-link:hover {
+            background-color: #007bff;
+            color: #fff;
+            transition: 0.3s;
+        }
+
+        .nav-justified .nav-item {
+            flex: 1;
+            text-align: center;
+        }
+
+        /* table class name */
+        .my-3 {
+            margin-top: 1rem !important;
+            margin-bottom: 1rem !important;
+        }
+
+        .table {
+            margin-top: 10px;
+        }
+    </style>
 </head>
 
 <body>
@@ -108,11 +139,26 @@
                 </div>
             </div>
             <div class="container-fluid">
+                <div style="width: 100%;">
+
+                    <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0 active nav-bas" id="targets-tab" data-toggle="pill" href="#targets" role="tab" aria-controls="targets" aria-selected="true">Targets</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="journal-tab" data-toggle="pill" href="#journal" role="tab" aria-controls="journal" aria-selected="false">Journal</a>
+                        </li>
+                        <li class="nav-item" role="presentation">
+                            <a class="nav-link rounded-0" id="consultancy-tab" data-toggle="pill" href="#consultancy" role="tab" aria-controls="consultancy" aria-selected="false">Consultancy</a>
+                        </li>
+                    </ul>
+                </div>
                 <div class="card">
-                    <div class="card-body">
-                        <div class="table-responsive">
-                            <table id="awareness" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white">
+                    <div class="tab-content" id="researchTabContent">
+                        <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
+                            <br>
+                            <table id="journalTable" class="table table-striped table-bordered">
+                                <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
                                         <th> Faculty ID</th>
@@ -125,13 +171,20 @@
                                     </tr>
                                 </thead>
                                 <tbody>
-                                   
 
                                 </tbody>
 
                             </table>
+                            <br>
                         </div>
 
+                        <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
+                            <!-- table veganum  -->
+                        </div>
+
+                        <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
+                            <!-- table veganum  -->
+                        </div>
                     </div>
                 </div>
 
@@ -141,35 +194,22 @@
             </footer>
         </div>
     </div>
+    <!-- Scripts -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
-    <!-- Bootstrap tether Core JavaScript -->
     <script src="assets/libs/popper.js/dist/umd/popper.min.js"></script>
     <script src="assets/libs/bootstrap/dist/js/bootstrap.min.js"></script>
     <script src="assets/libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js"></script>
     <script src="assets/extra-libs/sparkline/sparkline.js"></script>
-    <!--Wave Effects -->
     <script src="dist/js/waves.js"></script>
-    <!--Menu sidebar -->
     <script src="dist/js/sidebarmenu.js"></script>
-    <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
-    <!--This page JavaScript -->
-    <!-- <script src="dist/js/pages/dashboards/dashboard1.js"></script> -->
-    <!-- Charts js Files -->
-    <script src="assets/libs/flot/excanvas.js"></script>
-    <script src="assets/libs/flot/jquery.flot.js"></script>
-    <script src="assets/libs/flot/jquery.flot.pie.js"></script>
-    <script src="assets/libs/flot/jquery.flot.time.js"></script>
-    <script src="assets/libs/flot/jquery.flot.stack.js"></script>
-    <script src="assets/libs/flot/jquery.flot.crosshair.js"></script>
-    <script src="assets/libs/flot.tooltip/js/jquery.flot.tooltip.min.js"></script>
-    <script src="dist/js/pages/chart/chart-page-init.js"></script>
-    <!--   datatable link -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
     <script>
         $(document).ready(function() {
-            $('#awareness').DataTable();
+            // Initialize DataTables for each table
+            $('#journalTable').DataTable();
+            $('#consultancyTable').DataTable();
         });
     </script>
 </body>
