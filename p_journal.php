@@ -1,4 +1,10 @@
+<?php
+include "db.php";
 
+$sql = "SELECT journal.faculty_name, journal.faculty_id, journal.status , journal.type,journal.title,journal.link,fundedprojects.projectid,fundedprojects.fundingagency,fundedprojects.requestedamount  FROM journal INNER JOIN fundedprojects ON journal.faculty_id = fundedprojects.faculty_id";
+
+$result = $conn->query($sql);
+?>
 <!DOCTYPE html>
 <html dir="ltr" lang="en">
 
@@ -144,7 +150,7 @@
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="targets" role="tabpanel" aria-labelledby="targets-tab">
                             <br>
-                            <table id="journalTable" class="table table-striped table-bordered">
+                            <table id="journalTable" class="table table-striped table-bordered table-responsive">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>Faculty Name</th>
@@ -160,6 +166,29 @@
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    if ($result->num_rows > 0) {
+                                        while ($row = $result->fetch_assoc()) {
+                                    ?>
+                                            <tr>
+
+                                                <td><?php echo $row['faculty_name']; ?></td>
+                                                <td><?php echo $row['faculty_id']; ?></td>
+                                                <td><?php echo $row['type']; ?></td>
+                                                <td><?php echo $row['title']; ?></td>
+                                                <td><?php echo $row['projectid']; ?></td>
+                                                <td><?php echo $row['fundingagency']; ?></td>
+                                                <td><?php echo $row['link']; ?></td>
+                                                <td><?php echo $row['requestedamount']; ?></td>
+                                                <td><?php echo $row['status']; ?></td>
+                                                <td><a class="btn btn-info" href="update.php?id=">Edit</a>
+                                                    &nbsp; <a class="btn btn-danger" href="delete.php?id= ">Delete</a></td>
+                                            </tr>
+                                    <?php
+                                        }
+                                    }
+                                    ?>
+
 
 
 
