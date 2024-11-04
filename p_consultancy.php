@@ -165,13 +165,11 @@
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Tittle</th>
-                                        <th>Type</th>
-                                        <th>Project ID</th>
-                                        <th>Funding Agency</th>
-                                        <th>Link</th>
-                                        <th>Requested Amount</th>
-                                        <th>Status</th>
-                                        <th>Actions</th>
+                                        <th>Industry Type</th>
+                                        <th>Mou Signed</th>
+                                        <th>Earnings</th>
+                                        <th>File</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>

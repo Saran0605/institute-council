@@ -190,12 +190,18 @@
                             <table id="journalTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
-                                        <th>Name</th>
-                                        <th>Position</th>
-                                        <th>Office</th>
-                                        <th>Age</th>
-                                        <th>Start date</th>
-                                        <th>Salary</th>
+                                        <th>Faculty Name</th>
+                                        <th>Faculty ID</th>
+                                        <th>Title</th>
+                                        <th>Organizer</th>
+                                        <th>Publisher Name</th>
+                                        <th>Indexing Details</th>
+                                        <th>Level</th>
+                                        <th>Datye</th>
+                                        <th>Title of paper</th>
+                                        <th>ISBN</th>
+                                        <th>No of Authors</th>
+                                        <th>Author's Position</th>
                                     </tr>
                                 </thead>
                                 <tbody>
