@@ -58,19 +58,47 @@ $result = mysqli_query(mysql: $conn, query: $query);
             margin-top: 10px;
         }
 
-    .fixed-width-1 { width: 150px; }
-    .fixed-width-2 { width: 100px; }
-    .fixed-width-3 { width: 200px; }
-    .fixed-width-4 { width: 150px; }
-    .fixed-width-5 { width: 120px; }
-    .fixed-width-6 { width: 250px; }
-    .fixed-width-7 { width: 150px; }
-    .fixed-width-8 { width: 150px; }
-    td, th {
-        white-space: nowrap; /* Prevent text from wrapping */
-        overflow: hidden; /* Hide overflow */
-        text-overflow: ellipsis; /* Add ellipsis (...) for long content */
-    }
+        .fixed-width-1 {
+            width: 150px;
+        }
+
+        .fixed-width-2 {
+            width: 100px;
+        }
+
+        .fixed-width-3 {
+            width: 200px;
+        }
+
+        .fixed-width-4 {
+            width: 150px;
+        }
+
+        .fixed-width-5 {
+            width: 120px;
+        }
+
+        .fixed-width-6 {
+            width: 250px;
+        }
+
+        .fixed-width-7 {
+            width: 150px;
+        }
+
+        .fixed-width-8 {
+            width: 150px;
+        }
+
+        td,
+        th {
+            white-space: nowrap;
+            /* Prevent text from wrapping */
+            overflow: hidden;
+            /* Hide overflow */
+            text-overflow: ellipsis;
+            /* Add ellipsis (...) for long content */
+        }
     </style>
 </head>
 
@@ -161,7 +189,7 @@ $result = mysqli_query(mysql: $conn, query: $query);
                             <a class="nav-link rounded-0 active nav-bas" id="Entries-tab" data-toggle="pill" href="#Entries" role="tab" aria-controls="Entries" aria-selected="true">Entries</a>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <a class="nav-link rounded-0" id="Report-tab" data-toggle="pill" href="#Report" role="tab" aria-controls="Report" aria-selected="false">Report</a>
+                            <a class="nav-link rounded-0" id="Report-tab" data-toggle="pill" href="#Report" role="tab" aria-controls="Report" aria-selected="false">Reports</a>
                         </li>
                         <li class="nav-item" role="presentation">
                             <a class="nav-link rounded-0" id="Statistics-tab" data-toggle="pill" href="#Statistics" role="tab" aria-controls="Statistics" aria-selected="false">Statistics</a>
@@ -172,77 +200,79 @@ $result = mysqli_query(mysql: $conn, query: $query);
                     <div class="tab-content" id="researchTabContent">
                         <div class="tab-pane fade show active" id="Entries" role="tabpanel" aria-labelledby="Entries-tab">
                             <br>
-                            <table id="EntriesTable" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white;width:50px;">
-                                    <tr>
-                                        <th class="fixed-width-1">Faculty Name</th>
-                                        <th class="fixed-width-2">Faculty ID</th>
-                                        <th class="fixed-width-3">Organizer Name</th>
-                                        <th class="fixed-width-4">Program Name</th>
-                                        <th class="fixed-width-5">Place Held</th>
-                                        <th class="fixed-width-6">Program Details</th>
-                                        <th class="fixed-width-7">Speaker</th>
-                                        <th class="fixed-width-8">Action</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                    ?><tr>
-                                            <td><?php echo $row['faculty_name']; ?></td>
-                                            <td><?php echo $row['faculty_id']; ?></td>
-                                            <td><?php echo $row['organiserName']; ?></td>
-                                            <td><?php echo $row['programName']; ?></td>
-                                            <td><?php echo $row['placeHeld']; ?></td>
-                                            <td><?php echo $row['programDetails']; ?></td>
-                                            <td><?php echo $row['speaker']; ?></td>
-                                            <td><?php echo $row['speaker']; ?></td>
+                            <div class="table-responsive">
+                                <table id="EntriesTable" class="table table-striped table-bordered">
+                                    <thead style="background-color:black;color:white;width:50px;">
+                                        <tr>
+                                            <th class="fixed-width-1">Faculty Name</th>
+                                            <th class="fixed-width-2">Faculty ID</th>
+                                            <th class="fixed-width-3">Organizer Name</th>
+                                            <th class="fixed-width-4">Program Name</th>
+                                            <th class="fixed-width-5">Place Held</th>
+                                            <th class="fixed-width-6">Program Details</th>
+                                            <th class="fixed-width-7">Speaker</th>
+                                            <th class="fixed-width-8">Action</th>
                                         </tr>
-                                    <?php
-                                    }
-                                    ?>
-                                </tbody>
-
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                        ?><tr>
+                                                <td><?php echo $row['faculty_name']; ?></td>
+                                                <td><?php echo $row['faculty_id']; ?></td>
+                                                <td><?php echo $row['organiserName']; ?></td>
+                                                <td><?php echo $row['programName']; ?></td>
+                                                <td><?php echo $row['placeHeld']; ?></td>
+                                                <td><?php echo $row['programDetails']; ?></td>
+                                                <td><?php echo $row['speaker']; ?></td>
+                                                <td><?php echo $row['speaker']; ?></td>
+                                            </tr>
+                                        <?php
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                             <br>
                         </div>
 
                         <div class="tab-pane fade" id="Report" role="tabpanel" aria-labelledby="Report-tab">
                             <br>
-                            <table id="ReportTable" class="table table-striped table-bordered">
-                                <thead style="background-color:black;color:white;width:50px;">
-                                    <tr>
-                                        <th>S.No</th>
-                                        <th>Department Name</th>
-                                        <th>Faculty count</th>
-                                        <th>Total Count</th>
-                                        <th>This Month Target</th>
-                                        <th>This Month Count</th>
-                                        <th>Progress</th>
-                                        <th>Deviations</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    <?php
-                                    $s = 1;
-                                    while ($row = mysqli_fetch_assoc($result)) {
-                                    ?><tr>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
-                                            <td></td>
+                            <div class="table-responsive">
+                                <table id="ReportTable" class="table table-striped table-bordered">
+                                    <thead style="background-color:black;color:white;width:50px;">
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Department Name</th>
+                                            <th>Faculty count</th>
+                                            <th>Total Count</th>
+                                            <th>This Month Target</th>
+                                            <th>This Month Count</th>
+                                            <th>Progress</th>
+                                            <th>Deviations</th>
                                         </tr>
-                                    <?php
-                                        $s++;
-                                    }
-                                    ?>
-                                </tbody>
-
-                            </table>
+                                    </thead>
+                                    <tbody>
+                                        <?php
+                                        $s = 1;
+                                        while ($row = mysqli_fetch_assoc($result)) {
+                                        ?><tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                                <td></td>
+                                            </tr>
+                                        <?php
+                                            $s++;
+                                        }
+                                        ?>
+                                    </tbody>
+                                </table>
+                            </div>
                             <br>
                         </div>
 
