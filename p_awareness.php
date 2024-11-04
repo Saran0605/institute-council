@@ -57,6 +57,20 @@ $result = mysqli_query(mysql: $conn, query: $query);
         .table {
             margin-top: 10px;
         }
+
+    .fixed-width-1 { width: 150px; }
+    .fixed-width-2 { width: 100px; }
+    .fixed-width-3 { width: 200px; }
+    .fixed-width-4 { width: 150px; }
+    .fixed-width-5 { width: 120px; }
+    .fixed-width-6 { width: 250px; }
+    .fixed-width-7 { width: 150px; }
+    .fixed-width-8 { width: 150px; }
+    td, th {
+        white-space: nowrap; /* Prevent text from wrapping */
+        overflow: hidden; /* Hide overflow */
+        text-overflow: ellipsis; /* Add ellipsis (...) for long content */
+    }
     </style>
 </head>
 
@@ -161,14 +175,14 @@ $result = mysqli_query(mysql: $conn, query: $query);
                             <table id="EntriesTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
-                                        <th>Faculty Name</th>
-                                        <th>Faculty ID</th>
-                                        <th>Organizer Name</th>
-                                        <th>Program Name</th>
-                                        <th>Place Held</th>
-                                        <th>Program Details</th>
-                                        <th>Speaker</th>
-                                        <th>Actions</th>
+                                        <th class="fixed-width-1">Faculty Name</th>
+                                        <th class="fixed-width-2">Faculty ID</th>
+                                        <th class="fixed-width-3">Organizer Name</th>
+                                        <th class="fixed-width-4">Program Name</th>
+                                        <th class="fixed-width-5">Place Held</th>
+                                        <th class="fixed-width-6">Program Details</th>
+                                        <th class="fixed-width-7">Speaker</th>
+                                        <th class="fixed-width-8">Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
