@@ -127,13 +127,9 @@
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
                                         <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
-                                        <th>Date</th>
-                                        <th>Link</th>
-                                        <th>No.of Author</th>
-                                        <th>Authors Position</th>
+                                        <th>Industry Type</th>
+                                        <th>MOU Signed</th>
+                                        <th>earnings</th>
                                         <th>File</th>
                                         <th>Action</th>
                                     </tr>
@@ -152,14 +148,13 @@
                                         <th>S.No</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
-                                        <th>Date</th>
+                                        <th>Type</th>
+                                        <th>Title</th>
+                                        <th>Project ID</th>
+                                        <th>Funding Agency</th>
                                         <th>Link</th>
-                                        <th>No.of Author</th>
-                                        <th>Authors Position</th>
+                                        <th>Requested Amount</th>
+                                        <th>Tittle</th>
                                         <th>File</th>
                                         <th>Action</th>
                                     </tr>
@@ -178,15 +173,12 @@
                                         <th>S.No</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
-                                        <th>Volume</th>
-                                        <th>Issue Number</th>
-                                        <th>Pages</th>
-                                        <th>Date</th>
-                                        <th>Link</th>
-                                        <th>No.of Author</th>
-                                        <th>Authors Position</th>
-                                        <th>File</th>
+                                        <th>Organiser Name</th>
+                                        <th>Name of the program</th>
+                                        <th>Place Held</th>
+                                        <th>Details of the program</th>
+                                        <th>Speaker</th>
+                                        <th>Photos</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>

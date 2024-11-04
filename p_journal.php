@@ -11,6 +11,7 @@
     <title>Institute Council</title>
     <link href="assets/libs/flot/css/float-chart.css" rel="stylesheet">
     <link href="dist/css/style.min.css" rel="stylesheet">
+    <!--   datatable link -->
     <link rel="stylesheet" type="text/css" href="assets/extra-libs/multicheck/multicheck.css">
     <link href="assets/libs/datatables.net-bs4/css/dataTables.bootstrap4.css" rel="stylesheet">
 
@@ -123,7 +124,7 @@
             </div>
             <div class="container-fluid">
 
-                <div class="c" style="width: 100%;">
+                <div style="width: 100%;">
 
                     <ul class="nav nav-pills bg-nav-pills nav-justified my-3" id="researchTab" role="tablist">
                         <li class="nav-item" role="presentation">
@@ -163,6 +164,7 @@
                                 </tbody>
 
                             </table>
+                            <br>
                         </div>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
@@ -180,7 +182,7 @@
             2024 © M.Kumarasamy College of Engineering All Rights Reserved.
         </footer>
     </div>
-    </div>
+
 
     <!-- Scripts -->
     <script src="assets/libs/jquery/dist/jquery.min.js"></script>
