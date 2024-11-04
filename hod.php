@@ -229,6 +229,7 @@
 
                         <div class="tab-pane fade" id="conference" role="tabpanel" aria-labelledby="conference-tab">
                         <br>
+                        <div class="table-responsive">
                             <table id="conferenceTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -237,14 +238,14 @@
                                         <th>Faculty ID</th>
                                         <th>Tittle</th>
                                         <th>Organizer</th>
-                                        <th>Publisher-Name</th>
+                                        <th>Publisher Name</th>
                                         <th>Indexing-Details</th>
                                         <th>Level</th>
                                         <th>Date</th>
-                                        <th>Title-of-papers</th>
+                                        <th>Title of papers</th>
                                         <th>ISBN</th>
-                                        <th>No-of-Authors</th>
-                                        <th>Authors-position</th>
+                                        <th>No of Authors</th>
+                                        <th>Authors position</th>
                                         <th>Link</th>
                                         <th>Upload</th>
 
@@ -254,6 +255,7 @@
 
                                 </tbody>
                             </table>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
@@ -308,7 +310,12 @@
             $('#consultancyTable').DataTable();
             $('#funded_projectsTable').DataTable();
             $('#awareness_programTable').DataTable();
-            $('#conferenceTable').DataTable();
+            $('#conferenceTable').DataTable({
+                "lengthChange": true,
+                "ordering": false,
+                "autoWidth": true,
+                "responsive": true,
+            });
             $('#patentTable').DataTable();
 
 
