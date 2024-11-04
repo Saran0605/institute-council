@@ -258,7 +258,7 @@ include("db.php");
                                         <div class="card-body">
                                             <div class="d-flex justify-content-between align-items-center">
                                                 <h4 class="header-title">Current Month Target</h4><button class="btn btn-dark">Set Month's Target</button>
-                                            </div>
+                                            </div><br>
                                             <li class="list-group-item d-flex justify-content-between align-items-center"><span class="text-danger">Target not set for the current month</span></li>
                                         </div>
                                     </div>
