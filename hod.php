@@ -278,7 +278,7 @@ include("db.php");
                                         </button>
                                     </div>
                                     <form>
-                                        <div id="addNewJournal">
+                                        <div>
                                             <div class="modal-body">
                                                 <div class="form">
                                                     <div class="form-group">
@@ -322,6 +322,10 @@ include("db.php");
                         </div>
 
                         <!------journel tab------>
+                        <?php
+                        $sql1 = "SELECT * FROM journal"; 
+                        $result1 = mysqli_query($conn,$sql1);
+                        ?>
 
                         <div class="tab-pane fade" id="journal" role="tabpanel" aria-labelledby="journal-tab">
                             <br>
@@ -347,6 +351,15 @@ include("db.php");
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $s=1;
+                                    while($row = mysqli_fetch_assoc($result1)){ 
+                                    ?>
+
+                                    <?php
+                                     $s++;
+                                    }
+                                     ?>
 
                                 </tbody>
                             </table>
@@ -421,7 +434,7 @@ include("db.php");
                                             </div>
                                             <div class="form-group">
                                                 <label for="jFile">Upload File:</label>
-                                                <input type="file" id="jFile" name="jFile" placeholder="upload journal">
+                                                <input type="text" id="jFile" name="jFile" placeholder="upload journal">
                                             </div>
 
                                             <input type="hidden" id="jstatus" name="jstatus" value="pending">
@@ -470,7 +483,7 @@ include("db.php");
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form id="addNewJournal">
+                                    <form>
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Faculty Name</label>
@@ -519,7 +532,7 @@ include("db.php");
                             </div>
                         </div>
 
-                      <!--------funded projects tab------------->
+                        <!--------funded projects tab------------->
                         <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
                             <br>
                             <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#fundedprojectsModal">Add +</button>
@@ -546,8 +559,8 @@ include("db.php");
                                 </tbody>
                             </table>
                         </div>
-                      <!-------funded projects modal--------->
-                      <div class="modal fade" id="fundedprojectsModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                        <!-------funded projects modal--------->
+                        <div class="modal fade" id="fundedprojectsModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
                                 <div class="modal-content">
                                     <div class="modal-header">
@@ -556,7 +569,7 @@ include("db.php");
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form id="addNewJournal">
+                                    <form >
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Faculty Name</label>
@@ -592,7 +605,7 @@ include("db.php");
                                                 <input type="url" class="form-control" id="link" name="link">
                                             </div>
                                             <div class="form-group">
-                                                <label>Requested Amount</label>   
+                                                <label>Requested Amount</label>
                                                 <input type="number" id="reqamount" name="reqamount">
                                             </div>
                                             <div class="form-group">
@@ -706,10 +719,9 @@ include("db.php");
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
-    <!-- jQuery -->
-    <script src="path/to/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+
 
 
 
@@ -733,21 +745,23 @@ include("db.php");
             e.preventDefault();
             var data = new FormData(this);
             data.append("add_Journal", true);
+            console.log("response anupurathuku munadiii!!");
 
             $.ajax({
                 type: "POST",
                 url: "backend.php",
                 data: data,
                 processData: false,
-                contentType: false,
+                contentType: false,            
                 success: function(response) {
+                    
                     var res = jQuery.parseJSON(response);
-
+                    console.log("response vathute");
                     if (res.status == 200) {
 
                         alert("Sucessfully!!");
-                        $("#principalModal").modal("hide");
-                        $("#principal_Form")[0].reset();
+                        $("#journalModal").modal("hide");
+                        $("#addNewJournal")[0].reset();
                     } else if (res.status == 500) {
                         alert("Something went wrong. Please try again.");
                     }

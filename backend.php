@@ -21,9 +21,11 @@ if (isset($_POST['add_Journal'])) {
 
         $response = ['status' => 200, 'message' => 'Complaint accepted and status updated successfully!'];
         echo json_encode($response);
+        return;
     } else {
         $response = ['status' => 500, 'message' => 'Failed to insert data into manager table.'];
         echo json_encode($response);
+        return;
 
     }
     
