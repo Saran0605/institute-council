@@ -16,12 +16,16 @@ if (isset($_POST['add_Journal'])) {
     $aut_pos = $_POST['jAuthPos'];
     $file = $_POST['jFile'];
     $status = $_POST['jstatus'];
-    $insertQuery = "INSERT INTO journal (type,tittle,volume,issuenumber,page,date,link,noauthor,position,uploadfile,faculty_name,faculty_id,status) VALUES ('$type', '$title', '$volume','$issue_no', '$pages', '$date','$link', '$no_of_aut', '$aut_pos','$file', '$fname', '$fid','$status')";
+    $insertQuery = "INSERT INTO journal (type,title,volume,issuenumber,page,date,link,noauthor,position,uploadfile,faculty_name,faculty_id,status) VALUES ('$type', '$title', '$volume','$issue_no', '$pages', '$date','$link', '$no_of_aut', '$aut_pos','$file', '$fname', '$fid','$status')";
     if (mysqli_query($conn, $insertQuery)) {
 
         $response = ['status' => 200, 'message' => 'Complaint accepted and status updated successfully!'];
+        echo json_encode($response);
     } else {
         $response = ['status' => 500, 'message' => 'Failed to insert data into manager table.'];
+        echo json_encode($response);
+
     }
-    echo json_encode($response);
+    
 }
+?>
