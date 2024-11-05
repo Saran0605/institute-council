@@ -1,5 +1,7 @@
 <?php
 include("db.php");
+$query = "SELECT * FROM awarenessprogram";
+$result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -415,8 +417,11 @@ include("db.php");
                                 </tbody>
                             </table>
                         </div>
-
+                        <!------awareness tab------>
                         <div class="tab-pane fade" id="awareness_program" role="tabpanel" aria-labelledby="awareness_program-tab">
+                            <br>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#awarnessModal">Add +</button>
+                            <br>
                             <br>
                             <table id="awareness_programTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
@@ -434,9 +439,102 @@ include("db.php");
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    <?php
+                                    $s = 1;
+                                    while ($row = mysqli_fetch_array($result)) {
 
+
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $s ?></td>
+                                            <td><?php echo $row["faculty_name"] ?></td>
+                                            <td><?php echo $row["faculty_id"] ?></td>
+                                            <td><?php echo $row["organiserName"] ?></td>
+                                            <td><?php echo $row["programName"] ?></td>
+                                            <td><?php  echo $row["placeHeld"] ?></td>
+                                            <td><?php  echo $row["programDetails"] ?></td>
+                                            <td><?php echo $row ["speaker"] ?></td>
+                                            <td><?php  echo $row['uploadfile']?></td>
+                                            <td><?php echo $row["status"] ?> </td>
+                                        </tr>
+                                    <?php
+                                        $s++;
+                                    }
+                                    
+                                    ?>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <!------awareness modal----->
+                        <div class="modal fade" id="awarnessModal" tabindex="-1" role="dialog" aria-labelledby="awarnessModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="awarnessModalLabel">Awarness Program</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addNewJournal">
+                                        <div class="modal-body">
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Faculty Name</label>
+                                                    <input type="text" id="afName" name="afName" placeholder="Faculty Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Organiser Name</label>
+                                                    <input type="text" id="OName" name="OName" placeholder="Organiser Name">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Name of the program</label>
+                                                    <input type="text" id="apName" name="apName" placeholder="Name of the program">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Date</label><br>
+                                                    <input type="date" id="adName" name="adName" placeholder="">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Place Held</label>
+                                                    <input type="text" id="place" name="place" placeholder="Place Held">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Details of the Program</label>
+                                                    <input type="text" id="pdetails" name="pdetails" placeholder="Details of the Program">
+                                                </div>
+                                            </div>
+                                            <div class="form-row">
+                                                <div class="form-group col-md-12">
+                                                    <label>Speaker</label>
+                                                    <input type="text" id=">Speaker" name="speaker" placeholder="Speaker Name">
+                                                </div>
+                                                <div class="form-row">
+                                                    <div class="form-group col-md-12">
+                                                        <label>Upload file</label>
+                                                        <input type="file" id="afile" name="afile" placeholder="Upload file">
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="conference" role="tabpanel" aria-labelledby="conference-tab">
@@ -469,6 +567,7 @@ include("db.php");
                                 </table>
                             </div>
                         </div>
+
 
                         <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
                             <br>
@@ -533,33 +632,33 @@ include("db.php");
             $('#patentTable').DataTable();
         });
 
-        $(document).on('submit',"#addNewJournal",function(e){
+        $(document).on('submit', "#addNewJournal", function(e) {
             e.preventDefault();
             var data = new FormData(this);
-            data.append("add_Journal",true);
+            data.append("add_Journal", true);
 
             $.ajax({
-                    type: "POST",
-                    url: "backend.php",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        var res = jQuery.parseJSON(response);
+                type: "POST",
+                url: "backend.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
 
-                        if (res.status == 200) {
+                    if (res.status == 200) {
 
-                            alert("Sucessfully!!");
-                            $("#principalModal").modal("hide");
-                            $("#principal_Form")[0].reset();
-                        } else if (res.status == 500) {
-                            alert("Something went wrong. Please try again.");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert("An error occurred while processing your request.");
-                    },
-                });
+                        alert("Sucessfully!!");
+                        $("#principalModal").modal("hide");
+                        $("#principal_Form")[0].reset();
+                    } else if (res.status == 500) {
+                        alert("Something went wrong. Please try again.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred while processing your request.");
+                },
+            });
 
 
         })
