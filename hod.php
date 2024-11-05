@@ -592,7 +592,7 @@ include("db.php");
                                                 <input type="url" class="form-control" id="link" name="link">
                                             </div>
                                             <div class="form-group">
-                                                <label>Requested Amount</label>
+                                                <label>Requested Amount</label>   
                                                 <input type="number" id="reqamount" name="reqamount">
                                             </div>
                                             <div class="form-group">
