@@ -519,9 +519,11 @@ include("db.php");
                             </div>
                         </div>
 
-
+                      <!--------funded projects tab------------->
                         <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
                             <br>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#fundedprojectsModal">Add +</button>
+                            <br><br>
                             <table id="funded_projectsTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
@@ -544,6 +546,62 @@ include("db.php");
                                 </tbody>
                             </table>
                         </div>
+                      <!-------funded projects modal--------->
+                      <div class="modal fade" id="fundedprojectsModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="journalModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addNewJournal">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>Faculty Name</label>
+                                                <input type="text" id="facNamefund" name="facNamefund" placeholder="enter faculty's name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="Type">Type</label>
+                                                <select id="Type" name="Type" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Funded Projects">Funded Projects</option>
+                                                    <option value="Sponsored Research">Sponsored Research</option>
+                                                    <option value="Grants">Grants</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" id="fundtitle" name="fundtitle">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="funddate">Date</label>
+                                                <input type="date" class="form-control" id="funddate" name="funddate">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Project Id</label>
+                                                <input type="text" id="projectId" name="projectId">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Funding Agency</label>
+                                                <input type="text" id="fundagency" name="fundagency">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Upload File</label>
+                                                <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
+                                            </div>
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
 
                         <div class="tab-pane fade" id="awareness_program" role="tabpanel" aria-labelledby="awareness_program-tab">
                             <br>
