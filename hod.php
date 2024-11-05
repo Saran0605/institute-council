@@ -588,6 +588,14 @@ include("db.php");
                                                 <input type="text" id="fundagency" name="fundagency">
                                             </div>
                                             <div class="form-group">
+                                                <label>Link</label>
+                                                <input type="url" class="form-control" id="link" name="link">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Requested Amount</label>
+                                                <input type="number" id="reqamount" name="reqamount">
+                                            </div>
+                                            <div class="form-group">
                                                 <label>Upload File</label>
                                                 <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
                                             </div>
