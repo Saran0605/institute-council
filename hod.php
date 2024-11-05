@@ -646,6 +646,7 @@ include("db.php");
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
 
+
     <script>
         $(document).ready(function() {
             // Initialize DataTables for each table
