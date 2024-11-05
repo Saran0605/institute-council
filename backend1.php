@@ -40,4 +40,28 @@ if(isset($_POST['data'])){
         echo json_encode($res);
     }
 }
+
+
+if(isset($_POST['editu'])){
+    $id = $_POST['user_id'];
+    $query="SELECT * FROM consultancy WHERE id='$id'";
+    $data = mysqli_query($conn,$query);
+    $row = mysqli_fetch_array(($data));
+    if($row){
+        $res=[
+            "status"=>200,
+            "message"=>"fetched succesfully",
+            "data"=>$row
+
+        ];
+        echo json_encode(($res));
+    }
+    else{
+        $res=[
+            "status"=>500,
+            "message"=>"no data found for this id"
+        ] ; 
+        echo json_encode(($res));  
+    }
+}
 ?>

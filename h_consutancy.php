@@ -187,7 +187,7 @@ $result = mysqli_query($conn, $query);
             <nav class="navbar top-navbar navbar-expand-md navbar-dark">
                 <div class="navbar-header" data-logobg="skin5">
                     <a class="nav-toggler waves-effect waves-light d-block d-md-none" href="javascript:void(0)"><i class="ti-menu ti-close"></i></a>
-                    <a class="navbar-brand" href="index.html">
+                    <a class="navbar-brand" href="h_consutancy.php">
                         <b class="logo-icon p-l-1">
                             <img src="assets/images/logo-icon.png" alt="homepage" class="light-logo" />
                         </b>
@@ -402,9 +402,8 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo $row['moe'] ?></td>
                                             <td><?php echo $row['earnings'] ?></td>
                                             <td><?php echo $row['uploadfile'] ?></td>
-                                            <td><button>edit</button>
-                                                <button>delete
-                                                </button>
+                                            <td><button type="button" class="btn btn-primary edit" style="margin-left: 15px;" value="<?php echo $row['id']?>">edit</button><br>
+                                                <button class="btn btn-danger" style="margin-left: 15px;">delete</button>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -423,6 +422,64 @@ $result = mysqli_query($conn, $query);
                                         </button>
                                     </div>
                                     <form id="addconsultancy">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>Faculty Name</label>
+                                                <input type="text" id="facultyName" name="facultyName" placeholder="enter faculty's name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" id="title" name="title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="industryType">Industry type</label>
+                                                <select id="industryType" name="industryType" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Technology">Technology</option>
+                                                    <option value="Healthcare">Healthcare</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date">Date</label>
+                                                <input type="date" class="form-control" id="date" name="date">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="isMousigned">Is MOU Signed</label>
+                                                <select id="isMousigned" name="isMousigned" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Earnings</label>
+                                                <input type="number" id="earnings" name="earnings">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Upload File</label>
+                                                <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
+                                            </div>
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="modal fade" id="editconsultancyModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="consultancyModalLabel">consultancy</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="editconsultancy">
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Faculty Name</label>
@@ -635,6 +692,31 @@ $result = mysqli_query($conn, $query);
                     alert("Wrong!");
                 }
             })
+        })
+
+        $(document).on("click",".edit",function(e){
+            e.preventDefault();
+            var id=$(this).val();
+            console.log(id);
+            $.ajax({
+                type:"POST",
+                url:"backend1.php",
+                data:{
+                    "editu":true,
+                    "user_id":id
+                },
+                
+                success:function(response){
+                    var result=jQuery.parseJSON(response);
+                    console.log(result);
+                    if(result.status==200){
+                        $('facultyName').val(result.data.faculty_name);
+                        $('#editconsultancyModal').modal('show');
+                    }
+
+                }
+            })
+            
         })
     </script>
 
