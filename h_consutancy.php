@@ -1,5 +1,7 @@
 <?php
 include("db.php");
+$query = "SELECT * FROM consultancy";
+$result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -279,9 +281,7 @@ include("db.php");
                                         <th>Action</th>
                                     </tr>
                                 </thead>
-                                <tbody>
 
-                                </tbody>
                             </table>
                         </div>
 
@@ -371,13 +371,15 @@ include("db.php");
 
                         <div class="tab-pane fade" id="consultancy" role="tabpanel" aria-labelledby="consultancy-tab">
                             <br>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#consultancyModal">Add +</button>
+                            <br> <br>
                             <table id="consultancyTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
                                     <tr>
                                         <th>S.No</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
-                                        <th>Tittle</th>
+                                        <th>Title</th>
                                         <th>Industry Type</th>
                                         <th>MOU Signed</th>
                                         <th>earnings</th>
@@ -387,8 +389,86 @@ include("db.php");
                                 </thead>
                                 <tbody>
 
+                                    <?php $sno = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $sno++ ?></td>
+                                            <td><?php echo $row['faculty_name'] ?></td>
+                                            <td><?php echo $row['faculty_id'] ?></td>
+                                            <td><?php echo $row['title'] ?></td>
+                                            <td><?php echo $row['type'] ?></td>
+                                            <td><?php echo $row['moe'] ?></td>
+                                            <td><?php echo $row['earnings'] ?></td>
+                                            <td><?php echo $row['uploadfile'] ?></td>
+                                            <td><button>edit</button>
+                                                <button>delete
+                                                </button>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
+                        </div>
+
+                        <!-----Consultancy modal---->
+                        <div class="modal fade" id="consultancyModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="consultancyModalLabel">consultancy</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addconsultancy">
+                                        <div class="modal-body">
+                                            <div class="form-group">
+                                                <label>Faculty Name</label>
+                                                <input type="text" id="facName" name="facName" placeholder="enter faculty's name">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Title</label>
+                                                <input type="text" id="title" name="title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="industryType">Industry type</label>
+                                                <select id="industryType" name="industryType" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Technology">Technology</option>
+                                                    <option value="Healthcare">Healthcare</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="date">Date</label>
+                                                <input type="date" class="form-control" id="date" name="date">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="isMousigned">Is MOU Signed</label>
+                                                <select id="isMousigned" name="isMousigned" class="form-control">
+                                                    <option value="">Choose...</option>
+                                                    <option value="Yes">Yes</option>
+                                                    <option value="No">No</option>
+                                                </select>
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Earnings</label>
+                                                <input type="number" id="earnings" name="earnings">
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Upload File</label>
+                                                <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
+                                            </div>
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
                         </div>
 
                         <div class="tab-pane fade" id="funded_projects" role="tabpanel" aria-labelledby="funded_projects-tab">
@@ -515,55 +595,49 @@ include("db.php");
     <script src="path/to/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
+    
 
 
     <script>
-        $(document).ready(function() {
-            // Initialize DataTables for each table
-            $('#journalTable').DataTable();
-            $('#consultancyTable').DataTable();
-            $('#funded_projectsTable').DataTable();
-            $('#awareness_programTable').DataTable();
-            $('#conferenceTable').DataTable({
-                "lengthChange": true,
-                "ordering": false,
-                "autoWidth": true,
-                "responsive": true,
-            });
-            $('#patentTable').DataTable();
+        $(document).ready(function () {
+        $('#consultancyTable').DataTable({
+            "pageLength": 5,
+            "ordering": true,
+            "searching": true,
+            "info": true
         });
+    });
+      
 
-        $(document).on('submit',"#addNewJournal",function(e){
+
+        $(document).on("submit","#addconsultancy",function(e){
             e.preventDefault();
-            var data = new FormData(this);
-            data.append("add_Journal",true);
-
+            var fdata=new FormData(this);
+            fdata.append("data",true);
+            console.log(fdata);
             $.ajax({
-                    type: "POST",
-                    url: "backend.php",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        var res = jQuery.parseJSON(response);
-
-                        if (res.status == 200) {
-
-                            alert("Sucessfully!!");
-                            $("#principalModal").modal("hide");
-                            $("#principal_Form")[0].reset();
-                        } else if (res.status == 500) {
-                            alert("Something went wrong. Please try again.");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert("An error occurred while processing your request.");
-                    },
-                });
-
-
+                type:"POST",
+                url:"backend1.php",
+                data:fdata,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    var result=jQuery.parseJSON(response);
+                    if(result.status==200){
+                        alert("added successfully");
+                        $('#consultancyModal').modal("hide");
+                    }
+                    else{
+                        alert("Sorry!!")
+                    }
+                },
+                error:function(xhr,status,error){
+                    alert("Wrong!");
+                }
+            })
         })
     </script>
+
 
 </body>
 
