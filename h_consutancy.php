@@ -683,6 +683,7 @@ $result = mysqli_query($conn, $query);
                     if(result.status==200){
                         alert("added successfully");
                         $('#consultancyModal').modal("hide");
+                        $('#addconsultancy')[0].reset();
                     }
                     else{
                         alert("Sorry!!")

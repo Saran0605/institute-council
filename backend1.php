@@ -2,7 +2,7 @@
 include("db.php");
 
 if(isset($_POST['data'])){
-    $fname = $_POST["facName"];
+    $fname = $_POST["facultyName"];
     $title = $_POST["title"];
     $indtype = $_POST["industryType"];
     $date = $_POST["date"];
