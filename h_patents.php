@@ -1,5 +1,7 @@
 <?php
 include("db.php");
+$query = "SELECT * FROM patents";
+$result = mysqli_query($conn, $query);
 ?>
 
 <!DOCTYPE html>
@@ -472,13 +474,16 @@ include("db.php");
 
                         <div class="tab-pane fade" id="patent" role="tabpanel" aria-labelledby="patent-tab">
                             <br>
+                            <button type="button" class="btn btn-primary" style="margin-left: 15px;" data-toggle="modal" data-target="#patentsModal">Add +</button>
+                            <br><br>
                             <table id="patentTable" class="table table-striped table-bordered">
                                 <thead style="background-color:black;color:white;width:50px;">
+
                                     <tr>
                                         <th>S.No</th>
-                                        <th>TItle</th>
                                         <th>Faculty Name</th>
                                         <th>Faculty ID</th>
+                                        <th>TItle</th>
                                         <th>Field of Innovation</th>
                                         <th>Filling Date</th>
                                         <th>Status</th>
@@ -489,10 +494,95 @@ include("db.php");
                                     </tr>
                                 </thead>
                                 <tbody>
-
+                                    <?php $sno = 1;
+                                    while ($row = mysqli_fetch_assoc($result)) {
+                                    ?>
+                                        <tr>
+                                            <td><?php echo $sno++ ?></td>
+                                            <td><?php echo $row['faculty_name'] ?></td>
+                                            <td><?php echo $row['faculty_id'] ?></td>
+                                            <td><?php echo $row['title'] ?></td>
+                                            <td><?php echo $row['field_of_innovation'] ?></td>
+                                            <td><?php echo $row['date'] ?></td>
+                                            <td><?php echo $row['status'] ?></td>
+                                            <td><?php echo $row['no_of_authors'] ?></td>
+                                            <td><?php echo $row['authors_position'] ?></td>
+                                            <td><?php echo $row['file_name'] ?></td>
+                                            <td>
+                                                <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-secondary btnuseredit">Edit</button>
+                                                <button type="button" value="<?php echo $row['id']; ?>" class="btn btn-danger btnuserdelete">Delete</button>
+                                            </td>
+                                        </tr>
+                                    <?php } ?>
                                 </tbody>
                             </table>
                         </div>
+
+
+                        <!-- Start of Patents Modal -->
+                        <div class="modal fade" id="patentsModal" tabindex="-1" role="dialog" aria-labelledby="patentsModalLabel" aria-hidden="true">
+                            <div class="modal-dialog" role="document">
+                                <div class="modal-content">
+                                    <div class="modal-header">
+                                        <h5 class="modal-title" id="patentsModalLabel">Modal title</h5>
+                                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                            <span aria-hidden="true">&times;</span>
+                                        </button>
+                                    </div>
+                                    <form id="addNewpatents">
+                                        <div class="modal-body">
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="facultyNamePatent">Enter Name:</label>
+                                                    <input type="text" id="facultyNamePatent" name="facultyNamePatent" placeholder="Enter your Name">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="facultyIdPatent">Enter Id:</label>
+                                                    <input type="number" id="facultyIdPatent" name="facultyIdPatent" placeholder="Enter your ID">
+                                                </div>
+                                            </div>
+
+                                            <div class="form-group">
+                                                <label for="patentTitle">Title:</label>
+                                                <input type="text" id="patentTitle" name="patentTitle" placeholder="Enter Title">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="fieldofInnovation">Field of Innovation</label>
+                                                <input type="text" id="fieldofInnovation" name="fieldofInnovation" placeholder="Enter field of Innovation">
+                                            </div>
+
+                                            <div class="form-row">
+                                                <div class="form-group col-md-6">
+                                                    <label for="fillingDate">Filling Date:</label><br>
+                                                    <input type="text" id="fillingDate" name="fillingDate" placeholder="Enter filling date">
+                                                </div>
+                                                <div class="form-group col-md-6">
+                                                    <label for="noofAuthors">No of Authors:</label>
+                                                    <input type="text" id="noofAuthors" name="noofAuthors" placeholder="enter journal issue no">
+                                                </div>
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="AuthorsPosition">Authors Position:</label>
+                                                <input type="text" id="AuthorsPosition" name="AuthorsPosition" placeholder="enter no of pages">
+                                            </div>
+                                            <div class="form-group">
+                                                <label for="patentFile">Upload File:</label>
+                                                <input type="text" id="patentFile" name="patentFile" placeholder="upload journal">
+                                            </div>
+                                            <input type="hidden" id="jstatus" name="jstatus" value="pending">
+                                        </div>
+                                        <div class="modal-footer">
+                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End of Patents Modal -->
+
+
+
                     </div>
                 </div>
             </div>
@@ -511,8 +601,6 @@ include("db.php");
     <script src="dist/js/sidebarmenu.js"></script>
     <!--Custom JavaScript -->
     <script src="dist/js/custom.min.js"></script>
-    <!-- jQuery -->
-    <script src="path/to/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
 
@@ -533,36 +621,63 @@ include("db.php");
             $('#patentTable').DataTable();
         });
 
-        $(document).on('submit',"#addNewJournal",function(e){
+        $(document).on('submit', "#addNewJournal", function(e) {
             e.preventDefault();
             var data = new FormData(this);
-            data.append("add_Journal",true);
+            data.append("add_Journal", true);
 
             $.ajax({
-                    type: "POST",
-                    url: "backend.php",
-                    data: data,
-                    processData: false,
-                    contentType: false,
-                    success: function(response) {
-                        var res = jQuery.parseJSON(response);
+                type: "POST",
+                url: "patent_backend.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
 
-                        if (res.status == 200) {
+                    if (res.status == 200) {
 
-                            alert("Sucessfully!!");
-                            $("#principalModal").modal("hide");
-                            $("#principal_Form")[0].reset();
-                        } else if (res.status == 500) {
-                            alert("Something went wrong. Please try again.");
-                        }
-                    },
-                    error: function(xhr, status, error) {
-                        alert("An error occurred while processing your request.");
-                    },
-                });
-
-
+                        alert("Sucessfully!!");
+                        $("#principalModal").modal("hide");
+                        $("#principal_Form")[0].reset();
+                    } else if (res.status == 500) {
+                        alert("Something went wrong. Please try again.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred while processing your request.");
+                },
+            });
         })
+
+        //patent script file
+        $(document).on('submit', "#addNewpatents", function(e) {
+            e.preventDefault();
+            var data = new FormData(this);
+            data.append("add_patents", true); // Corrected here
+
+            $.ajax({
+                type: "POST",
+                url: "patent_backend.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    console.log("Request successful");
+                    var res = jQuery.parseJSON(response);
+                    if (res.status == 200) {
+                        alert("Successfully uploaded");
+                        $("#patentsModal").modal("hide");
+                        $("#addNewpatents")[0].reset();
+                    } else if (res.status == 500) {
+                        alert("Something went wrong. Please try again.");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred while processing your request.");
+                },
+            });
+        });
     </script>
 
 </body>

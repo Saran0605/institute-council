@@ -451,16 +451,16 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo $row["faculty_id"] ?></td>
                                             <td><?php echo $row["organiserName"] ?></td>
                                             <td><?php echo $row["programName"] ?></td>
-                                            <td><?php  echo $row["placeHeld"] ?></td>
-                                            <td><?php  echo $row["programDetails"] ?></td>
-                                            <td><?php echo $row ["speaker"] ?></td>
-                                            <td><?php  echo $row['uploadfile']?></td>
+                                            <td><?php echo $row["placeHeld"] ?></td>
+                                            <td><?php echo $row["programDetails"] ?></td>
+                                            <td><?php echo $row["speaker"] ?></td>
+                                            <td><?php echo $row['uploadfile'] ?></td>
                                             <td><?php echo $row["status"] ?> </td>
                                         </tr>
                                     <?php
                                         $s++;
                                     }
-                                    
+
                                     ?>
                                 </tbody>
                             </table>
@@ -476,7 +476,7 @@ $result = mysqli_query($conn, $query);
                                             <span aria-hidden="true">&times;</span>
                                         </button>
                                     </div>
-                                    <form id="addNewJournal">
+                                    <form id="addNewprogram">
                                         <div class="modal-body">
 
                                             <div class="form-row">
@@ -500,7 +500,7 @@ $result = mysqli_query($conn, $query);
                                             <div class="form-row">
                                                 <div class="form-group col-md-12">
                                                     <label>Date</label><br>
-                                                    <input type="date" id="adName" name="adName" placeholder="">
+                                                    <input type="date" id="date" name="date" placeholder="">
                                                 </div>
                                             </div>
                                             <div class="form-row">
@@ -523,14 +523,14 @@ $result = mysqli_query($conn, $query);
                                                 <div class="form-row">
                                                     <div class="form-group col-md-12">
                                                         <label>Upload file</label>
-                                                        <input type="file" id="afile" name="afile" placeholder="Upload file">
+                                                        <input type="text" id="afile" name="afile" placeholder="Upload file">
                                                     </div>
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary " id="add-new-program">Submit</button>
                                         </div>
                                     </form>
                                 </div>
@@ -661,6 +661,36 @@ $result = mysqli_query($conn, $query);
             });
 
 
+        })
+
+        $(document).on("submit", "#add-new-program", function(e) {
+            e.preventDefault();
+            var data = new Formdata(this);
+            data.append("add-program", true);
+            console.log(data);
+            $.ajax({
+                type: "POST",
+                url: "backend.php",
+                data: data,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var res = jQuery.parseJSON(response);
+                    console.log("res")
+                    if (res.status == 200) {
+                        alert("added sucessfully!!");
+                        $("#awarnessModal").modal("hide");
+                        $("#addNewprogram")[0].reset();
+                        $("#awareness_program").load(location.herf + "#awareness_program")
+                    } else if (res.status == 500) {
+                        alert("something something");
+                    }
+                },
+                error: function(xhr, status, error) {
+                    alert("An error occurred while processing your request.");
+
+                },
+            });
         })
     </script>
 

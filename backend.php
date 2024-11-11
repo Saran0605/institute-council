@@ -30,4 +30,12 @@ if (isset($_POST['add_Journal'])) {
     }
     
 }
+
+//data insert for awarness table
+
+
+
+
+
+
 ?>
