@@ -424,6 +424,7 @@ $result = mysqli_query($conn, $query);
                                     <form id="addconsultancy">
                                         <div class="modal-body">
                                             <div class="form-group">
+                                               
                                                 <label>Faculty Name</label>
                                                 <input type="text" id="facultyName" name="facultyName" placeholder="enter faculty's name">
                                             </div>
@@ -470,6 +471,9 @@ $result = mysqli_query($conn, $query);
                                 </div>
                             </div>
                         </div>
+                        
+
+                        <!---Edit consultancy modal--->
 
                         <div class="modal fade" id="editconsultancyModal" tabindex="-1" role="dialog" aria-labelledby="journalModalLabel" aria-hidden="true">
                             <div class="modal-dialog" role="document">
@@ -482,6 +486,7 @@ $result = mysqli_query($conn, $query);
                                     </div>
                                     <form id="editconsultancy">
                                         <div class="modal-body">
+                                                <input type="hidden" id="id">
                                             <div class="form-group">
                                                 <label>Faculty Name</label>
                                                 <input type="text" id="efacName" name="efacName" placeholder="enter faculty's name">
@@ -708,14 +713,13 @@ $result = mysqli_query($conn, $query);
                     "editu": true,
                     "user_id": id
                 },
-
-
                 success: function(response) {
                     var result = jQuery.parseJSON(response);
                     console.log(result);
                     if (result.status == 500) {
                         alert(result.message);
                     } else {
+                        $('#id').val(result.data.id);
                         $('#efacName').val(result.data.faculty_name);
                         $('#etitle').val(result.data.title);
                         $('#eindustryType').val(result.data.type); 
@@ -736,6 +740,7 @@ $result = mysqli_query($conn, $query);
             var formData= new FormData(this);
             console.log(formData);
             formData.append("save_edited",true);
+            formData.append("id", $('#id').val());
             $.ajax({
                 type:"POST",
                 url:'backend1.php',
@@ -747,8 +752,8 @@ $result = mysqli_query($conn, $query);
                         if(res.status==200){
                             $('#editconsultancyModal').modal('hide');
                             $('#editconsultancy')[0].reset();
-                            $('#consultancyTable').load(location.href+"#consultancyTable");
                             alert(res.message);
+                            $('#consultancyTable').html(data);
                         }
                         else{
                             $('#editconsultancyModal').modal('hide');
