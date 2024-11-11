@@ -706,6 +706,7 @@ $result = mysqli_query($conn, $query);
                     "user_id":id
                 },
                 
+                
                 success:function(response){
                     var result=jQuery.parseJSON(response);
                     console.log(result);
