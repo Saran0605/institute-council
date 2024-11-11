@@ -403,7 +403,7 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo $row['earnings'] ?></td>
                                             <td><?php echo $row['uploadfile'] ?></td>
                                             <td><button type="button" class="btn btn-primary edit" style="margin-left: 15px;" value="<?php echo $row['id'] ?>">edit</button><br>
-                                                <button class="btn btn-danger" style="margin-left: 15px;">delete</button>
+                                                <button class="btn btn-danger delete" value="<?php echo $row['id'] ?>" style="margin-left: 15px;">delete</button>
                                             </td>
                                         </tr>
                                     <?php } ?>
@@ -765,6 +765,31 @@ $result = mysqli_query($conn, $query);
                 }
             });
         });
+
+        $(document).on('click','.delete',function(e){
+            e.preventDefault();
+            if (confirm('Are you sure you want to delete this data?')) {
+                var uid=$(this).val();
+                $.ajax({
+                    type:"POST",
+                    url:"backend1.php",
+                    data:{
+                        'deluser':true,
+                        'uid':uid
+                    },
+                    success:function(response){
+                        var res=jQuery.parseJSON(response);
+                        if(res.status==200){
+                            $('#consultancyTable').html(data);
+                        }
+                        else{
+                            alert(res.message);
+                        }
+                    }
+                })
+            }
+
+        })
     </script>
 
 

@@ -113,4 +113,27 @@ if (isset($_POST['save_edited'])) {
         echo json_encode($res);
     }
 }
+
+//delete
+if(isset($_POST['deluser'])){
+    $id = mysqli_real_escape_string($conn, $_POST['uid']);
+    $query = "DELETE FROM consultancy WHERE id='$id'";
+    $query_run = mysqli_query($conn, $query);
+    if ($query_run) {
+        $res = [
+            'status' => 200,
+            'message' => 'Details Deleted Successfully'
+        ];
+        echo json_encode($res);
+        return;
+    } else {
+        $res = [
+            'status' => 500,
+            'message' => 'Details Not Deleted'
+        ];
+        echo json_encode($res);
+        return;
+    }
+
+}
 ?>
