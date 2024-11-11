@@ -402,7 +402,7 @@ $result = mysqli_query($conn, $query);
                                             <td><?php echo $row['moe'] ?></td>
                                             <td><?php echo $row['earnings'] ?></td>
                                             <td><?php echo $row['uploadfile'] ?></td>
-                                            <td><button type="button" class="btn btn-primary edit" style="margin-left: 15px;" value="<?php echo $row['id']?>">edit</button><br>
+                                            <td><button type="button" class="btn btn-primary edit" style="margin-left: 15px;" value="<?php echo $row['id'] ?>">edit</button><br>
                                                 <button class="btn btn-danger" style="margin-left: 15px;">delete</button>
                                             </td>
                                         </tr>
@@ -435,8 +435,9 @@ $result = mysqli_query($conn, $query);
                                                 <label for="industryType">Industry type</label>
                                                 <select id="industryType" name="industryType" class="form-control">
                                                     <option value="">Choose...</option>
-                                                    <option value="Technology">Technology</option>
-                                                    <option value="Healthcare">Healthcare</option>
+                                                    <option value="Institution">Institution</option>
+                                                    <option value="Firm">Firm</option>
+                                                    
                                                 </select>
                                             </div>
                                             <div class="form-group">
@@ -483,27 +484,28 @@ $result = mysqli_query($conn, $query);
                                         <div class="modal-body">
                                             <div class="form-group">
                                                 <label>Faculty Name</label>
-                                                <input type="text" id="facName" name="facName" placeholder="enter faculty's name">
+                                                <input type="text" id="efacName" name="efacName" placeholder="enter faculty's name">
                                             </div>
                                             <div class="form-group">
                                                 <label>Title</label>
-                                                <input type="text" id="title" name="title">
+                                                <input type="text" id="etitle" name="etitle">
                                             </div>
                                             <div class="form-group">
-                                                <label for="industryType">Industry type</label>
-                                                <select id="industryType" name="industryType" class="form-control">
+                                                <label for="eindustryType">Industry type</label>
+                                                <select id="eindustryType" name="eindustryType" class="form-control">
                                                     <option value="">Choose...</option>
-                                                    <option value="Technology">Technology</option>
-                                                    <option value="Healthcare">Healthcare</option>
+                                                    <option value="Institution">Institution</option>
+                                                    <option value="Firm">Firm</option>
+                                                      
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label for="date">Date</label>
-                                                <input type="date" class="form-control" id="date" name="date">
+                                                <label for="edate">Date</label>
+                                                <input type="date" class="form-control" id="edate" name="edate">
                                             </div>
                                             <div class="form-group">
-                                                <label for="isMousigned">Is MOU Signed</label>
-                                                <select id="isMousigned" name="isMousigned" class="form-control">
+                                                <label for="eisMousigned">Is MOU Signed</label>
+                                                <select id="eisMousigned" name="eisMousigned" class="form-control">
                                                     <option value="">Choose...</option>
                                                     <option value="Yes">Yes</option>
                                                     <option value="No">No</option>
@@ -511,17 +513,17 @@ $result = mysqli_query($conn, $query);
                                             </div>
                                             <div class="form-group">
                                                 <label>Earnings</label>
-                                                <input type="number" id="earnings" name="earnings">
+                                                <input type="number" id="eearnings" name="eearnings">
                                             </div>
                                             <div class="form-group">
                                                 <label>Upload File</label>
-                                                <input type="file" id="consultuploadFile" name="consultuploadFile" placeholder="upload journal">
+                                                <input type="file" id="econsultuploadFile" name="econsultuploadFile" placeholder="upload journal">
                                             </div>
                                             <input type="hidden" id="jstatus" name="jstatus" value="pending">
                                         </div>
                                         <div class="modal-footer">
                                             <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                            <button type="submit" class="btn btn-primary">Submit</button>
+                                            <button type="submit" class="btn btn-primary">Update</button>
                                         </div>
                                     </form>
                                 </div>
@@ -652,74 +654,80 @@ $result = mysqli_query($conn, $query);
     <script src="path/to/jquery.min.js"></script>
     <!-- DataTables -->
     <script src="assets/extra-libs/DataTables/datatables.min.js"></script>
-    
+
 
 
     <script>
-        $(document).ready(function () {
-        $('#consultancyTable').DataTable({
-            "pageLength": 5,
-            "ordering": true,
-            "searching": true,
-            "info": true
+        $(document).ready(function() {
+            $('#consultancyTable').DataTable({
+                "pageLength": 5,
+                "ordering": true,
+                "searching": true,
+                "info": true
+            });
         });
-    });
-      
 
 
-        $(document).on("submit","#addconsultancy",function(e){
+
+        $(document).on("submit", "#addconsultancy", function(e) {
             e.preventDefault();
-            var fdata=new FormData(this);
-            fdata.append("data",true);
+            var fdata = new FormData(this);
+            fdata.append("data", true);
             console.log(fdata);
             $.ajax({
-                type:"POST",
-                url:"backend1.php",
-                data:fdata,
-                processData:false,
-                contentType:false,
-                success:function(response){
-                    var result=jQuery.parseJSON(response);
-                    if(result.status==200){
+                type: "POST",
+                url: "backend1.php",
+                data: fdata,
+                processData: false,
+                contentType: false,
+                success: function(response) {
+                    var result = jQuery.parseJSON(response);
+                    if (result.status == 200) {
                         alert("added successfully");
                         $('#consultancyModal').modal("hide");
                         $('#addconsultancy')[0].reset();
-                    }
-                    else{
+                    } else {
                         alert("Sorry!!")
                     }
                 },
-                error:function(xhr,status,error){
+                error: function(xhr, status, error) {
                     alert("Wrong!");
                 }
             })
         })
 
-        $(document).on("click",".edit",function(e){
+        $(document).on("click", ".edit", function(e) {
             e.preventDefault();
-            var id=$(this).val();
+            var id = $(this).val();
             console.log(id);
             $.ajax({
-                type:"POST",
-                url:"backend1.php",
-                data:{
-                    "editu":true,
-                    "user_id":id
+                type: "POST",
+                url: "backend1.php",
+                data: {
+                    "editu": true,
+                    "user_id": id
                 },
-                
-                
-                success:function(response){
-                    var result=jQuery.parseJSON(response);
+
+
+                success: function(response) {
+                    var result = jQuery.parseJSON(response);
                     console.log(result);
-                    if(result.status==200){
-                        $('facultyName').val(result.data.faculty_name);
+                    if (result.status == 500) {
+                        alert(result.message);
+                    } else {
+                        $('#efacName').val(result.data.faculty_name);
+                        $('#etitle').val(result.data.title);
+                        $('#eindustryType').val(result.data.type); 
+                        $('#edate').val(result.data.date);
+                        $('#eisMousigned').val(result.data.moe);
+                        $('#eearnings').val(result.data.earnings);
                         $('#editconsultancyModal').modal('show');
                     }
 
                 }
-            })
-            
-        })
+            });
+
+        });
     </script>
 
 

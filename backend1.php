@@ -43,11 +43,11 @@ if(isset($_POST['data'])){
 
 
 if(isset($_POST['editu'])){
-    $id = $_POST['user_id'];
+    $id = mysqli_real_escape_string($conn,$_POST['user_id']);
     $query="SELECT * FROM consultancy WHERE id='$id'";
     $data = mysqli_query($conn,$query);
     $row = mysqli_fetch_array(($data));
-    if($row){
+    if($data){
         $res=[
             "status"=>200,
             "message"=>"fetched succesfully",
@@ -55,6 +55,7 @@ if(isset($_POST['editu'])){
 
         ];
         echo json_encode(($res));
+        return;
     }
     else{
         $res=[
@@ -62,6 +63,7 @@ if(isset($_POST['editu'])){
             "message"=>"no data found for this id"
         ] ; 
         echo json_encode(($res));  
+        return;
     }
 }
 ?>
