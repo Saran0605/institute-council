@@ -683,9 +683,10 @@ $result = mysqli_query($conn, $query);
                 success: function(response) {
                     var result = jQuery.parseJSON(response);
                     if (result.status == 200) {
-                        alert("added successfully");
                         $('#consultancyModal').modal("hide");
                         $('#addconsultancy')[0].reset();
+                        $('#consultancyTable').load(location.href+"#consultancyTable");
+                        alert("added successfully");
                     } else {
                         alert("Sorry!!")
                     }
@@ -727,6 +728,37 @@ $result = mysqli_query($conn, $query);
                 }
             });
 
+        });
+
+
+        $(document).on('submit','#editconsultancy',function(e){
+            e.preventDefault();
+            var formData= new FormData(this);
+            console.log(formData);
+            formData.append("save_edited",true);
+            $.ajax({
+                type:"POST",
+                url:'backend1.php',
+                data:formData,
+                processData:false,
+                contentType:false,
+                success:function(response){
+                    var res=jQuery.parseJSON(response);
+                        if(res.status==200){
+                            $('#editconsultancyModal').modal('hide');
+                            $('#editconsultancy')[0].reset();
+                            $('#consultancyTable').load(location.href+"#consultancyTable");
+                            alert(res.message);
+                        }
+                        else{
+                            $('#editconsultancyModal').modal('hide');
+                            $('#editconsultancy')[0].reset();
+                            console.error(res.message);
+                            alert("Issue");
+                        }
+                    
+                }
+            });
         });
     </script>
 
